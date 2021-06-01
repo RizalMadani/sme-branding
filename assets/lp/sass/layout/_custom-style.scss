@@ -1,0 +1,31 @@
+/*-------------------------------------------------------*/
+/* Custom Style
+/*-------------------------------------------------------*/
+
+#daftar {
+    scroll-margin-top: 80px;
+}
+
+.statistik-wrapper {
+    margin: 0 0 24px 0;
+    color: $bg-light;
+    text-align: center;
+    text-shadow: 0 0 4px #6c4ca9;
+
+    span {
+        display: block;
+    }
+}
+
+.angka-statistik {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.ket-statistik {
+    font-size: 1rem;
+}
+
+.benefits__subtitle {
+    font-size: 18px;
+}

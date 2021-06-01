@@ -1,0 +1,74 @@
+/* ==============
+  Custom Style
+===================*/
+
+.errors {
+    color: $danger;
+}
+
+.overflow-auto {
+    overflow: auto;
+}
+
+.crop-center {
+    object-fit: cover;
+    object-position: center;
+}
+
+.list-order {
+    margin-bottom: 1rem;
+
+    a {
+        color: unset;
+    }
+
+    &:hover {
+        color: $primary;
+        background-color: rgba(63, 81, 181, 0.1);
+    }
+}
+
+#hal-pertama, #hal-kedua {
+    overflow: hidden;
+    transition: height .25s ease-out;
+}
+
+#status-order {
+    cursor: pointer;
+}
+
+.sembunyi {
+    height: 0;
+    visibility: hidden;
+}
+
+.error-input-file {
+    color: $danger;
+}
+
+.list-file-error {
+    padding-left: 20px;
+}
+
+#input-komentar {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 240px;
+    z-index: 99;
+}
+
+.img-diskusi {
+    width: 100%;
+    max-width: 240px;
+    max-height: 480px;
+}
+
+.btn-download {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 14px;
+    background-color: $white;
+    opacity: 0.75;
+}
