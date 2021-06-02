@@ -26,7 +26,6 @@ class Auth extends CI_Controller {
 		$this->form_validation->set_rules('password','Password','required');
 
 		if ($this->form_validation->run() == FALSE) {
-			// redirect('login');
 			return $this->load->view('login');
 		}
 
@@ -38,9 +37,8 @@ class Auth extends CI_Controller {
 		$this->load->model('Model_user');
 		$user  = $this->Model_user->cekUser($username);
 
-		if (! password_verify($password, $user->password)){
-			$_SESSION['alert'] = '<div class="text-danger" style="text-align:center;">Username atau Password kurang tepat</div>';
-			$this->session->mark_as_flash('alert');
+		if (empty($user) || ! password_verify($password, $user->password)) {
+			$this->alert->alertDanger('Username atau Password kurang tepat');
 
 			log_message('debug', 'Password not correct');
 

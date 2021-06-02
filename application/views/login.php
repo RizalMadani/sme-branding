@@ -41,6 +41,8 @@
                   <?= validation_errors('<div class="error">', '</div>'); ?>
                 </div>
 
+                <?php $this->alert->tampilkan(); ?>
+
                 <div class="form-group bmd-form-group">
                   <label for="username" class="bmd-label-floating">Username</label>
                   <input type="text" name="username" class="form-control" id="username" required>
