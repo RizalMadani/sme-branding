@@ -35,9 +35,11 @@
             </div>
 
             <div class="px-3">
-              <?= form_open(base_url('/verify'), ['name' => 'form-login', 'class' => 'form-horizontal']) ?>
+              <?= form_open(base_url('login'), ['name' => 'form-login', 'class' => 'form-horizontal']) ?>
 
-                <?=validation_errors('<div class="error">'.'</div>');?>
+                <div class="mt-4">
+                  <?= validation_errors('<div class="error">', '</div>'); ?>
+                </div>
 
                 <div class="form-group bmd-form-group">
                   <label for="username" class="bmd-label-floating">Username</label>
@@ -47,7 +49,7 @@
                 <div class="form-group bmd-form-group d-flex align-items-baseline">
                   <label for="password" class="bmd-label-floating">Password</label>
                   <input type="password" name="password" class="form-control" id="password" autocomplete="off" required>
-
+                  
                   <button type="button" class="btn ml-2" id="pass-eye">
                     <i class="mdi mdi-eye-off" id="eye-icon"></i>
                   </button>
@@ -55,8 +57,8 @@
 
                 <div class="form-group mt-4">
                   <div class="custom-control custom-checkbox">
-                    <input type="checkbox" name="remember-me" value="1" class="custom-control-input" id="customCheck1">
-                    <label class="custom-control-label" for="customCheck1">Biarkan Saya tetap masuk</label>
+                    <input type="checkbox" name="remember-me" value="1" class="custom-control-input" id="remember-check">
+                    <label class="custom-control-label" for="remember-check">Biarkan Saya tetap masuk</label>
                   </div>
                 </div>
 
@@ -66,11 +68,11 @@
                   </div>
                 </div>
 
-                <div class="form-group row justify-content-center">
+                <div class="form-group row">
                   <!-- <div class="col-sm-6">
                     <a href="#" class="text-muted"><i class="mdi mdi-lock"></i> Lupa Password ?</a>
                   </div> -->
-                  <div class="col-12">
+                  <div class="col-12 text-center">
                     <a href="<?= base_url(); ?>daftar" class="text-muted"><i class="mdi mdi-account-circle"></i> Belum punya akun ?</a>
                   </div>
                 </div>

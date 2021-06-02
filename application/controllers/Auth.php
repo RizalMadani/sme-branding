@@ -7,32 +7,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * Login, logout, verifikasi.
  */
 class Auth extends CI_Controller {
-	
+
 	/**
-	 * Menampilkan halaman login
+	 * Login
+	 * 
+	 * Method untuk menampilkan halaman login
+	 * dan verifikasi login
 	 */
 	public function login()
 	{
-		$this->load->view('login');
-	}
-
-	/**
-	 * Method untuk verifikasi login
-	 */
-	public function verify()
-	{
 		if ($this->input->method() !== 'post') {
-			show_404();
+			return $this->load->view('login');
 		}
 
-		$this->load->model('Model_user');
 		$this->load->library('form_validation');
 
 		$this->form_validation->set_rules('username','Username','required');
 		$this->form_validation->set_rules('password','Password','required');
 
-		if($this->form_validation->run() == FALSE) {
-			return redirect('login');
+		if ($this->form_validation->run() == FALSE) {
+			// redirect('login');
+			return $this->load->view('login');
 		}
 
 
@@ -40,6 +35,7 @@ class Auth extends CI_Controller {
 		$password   = $this->input->post('password');
 		$rememberMe = $this->input->post('remember-me');
 		
+		$this->load->model('Model_user');
 		$user  = $this->Model_user->cekUser($username);
 
 		if (! password_verify($password, $user->password)){
@@ -48,8 +44,7 @@ class Auth extends CI_Controller {
 
 			log_message('debug', 'Password not correct');
 
-			redirect('login');
-
+			return $this->load->view('login');
 		}
 
 		$userLevel = user_level($user->level);
