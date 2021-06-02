@@ -839,10 +839,10 @@ code {
 
 .alert-warning {
   color: #ffb430;
-  background-color: #ffefd3;
+  background-color: #fff5e3;
 }
 .alert-warning .alert-link {
-  color: #fca100;
+  color: #e39000;
 }
 .alert-warning hr {
   border-top-color: #fca100;
@@ -850,10 +850,10 @@ code {
 
 .alert-danger {
   color: #ef4f4c;
-  background-color: #f9c2c1;
+  background-color: #fcd9d8;
 }
 .alert-danger .alert-link {
-  color: #eb211d;
+  color: #db1714;
 }
 .alert-danger hr {
   border-top-color: #eb211d;
@@ -3631,6 +3631,11 @@ body.fixed-left .side-menu.left {
 /* ==============
   Custom Style
 ===================*/
+.alert ul {
+  padding-left: 16px;
+  margin-bottom: 0;
+}
+
 .errors {
   color: #ef4f4c;
 }

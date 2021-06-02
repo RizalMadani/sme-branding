@@ -2,6 +2,15 @@
   Custom Style
 ===================*/
 
+.alert {
+	ul {
+		padding-left: 16px;
+		margin-bottom: 0;
+	}
+}
+
+
+
 .errors {
     color: $danger;
 }

@@ -35,9 +35,9 @@
 
 .alert-warning {
   color: $warning;
-  background-color: lighten($warning, 32%);
+  background-color: lighten($warning, 35%);
   .alert-link {
-    color: darken($warning, 10%);
+    color: darken($warning, 15%);
   }
   hr {
     border-top-color: darken($warning, 10%);
@@ -46,9 +46,9 @@
 
 .alert-danger {
   color: $danger;
-  background-color: lighten($danger,25%);
+  background-color: lighten($danger, 30%);
   .alert-link {
-    color: darken($danger,10%);
+    color: darken($danger,15%);
   }
   hr {
     border-top-color: darken($danger,10%);
