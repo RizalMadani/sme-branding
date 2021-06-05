@@ -6,12 +6,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * dan juga digunakan untuk autentikasi user
  */
 class Model_user extends CI_Model {
-	
+
 	/**
 	 * Ambil data user berdasarkan id_user
-	 * 
+	 *
 	 * @param    mixed    $id_user    id_user
-	 * 
+	 *
 	 * @return   object   $user       data user
 	 */
 	public function getUser($id_user)
@@ -25,9 +25,9 @@ class Model_user extends CI_Model {
 
 	/**
 	 * Method untuk cek user
-	 * 
+	 *
 	 * Cek apakah ada username dalam database.
-	 * 
+	 *
 	 * @param    string    $username    Username dari inputan login
 	 */
 	public function cekUser(string $username)
@@ -39,11 +39,16 @@ class Model_user extends CI_Model {
 
 	/**
 	 * Ambil level dari user berdasarkan id_user
-	 * 
+	 *
 	 * @param    mixed    $id_user    id_user
 	 */
 	public function getUserLevel($id_user)
 	{
 		return $this->db->query("SELECT level FROM user WHERE id_user = ".$id_user)->row();
+	}
+
+	public function insert_user($data)
+	{
+		return $this->db->insert('user',$data);
 	}
 }

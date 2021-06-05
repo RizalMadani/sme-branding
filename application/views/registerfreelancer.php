@@ -33,15 +33,31 @@
             <div class="text-center">
               <img src="<?=base_url()?>assets/admin/images/logosme.jpg" alt="logo" style="max-width: 200px;"/>
             </div>
-
+            <br><br>
             <div class="px-3">
-              <?= form_open(base_url('login'), ['name' => 'form-login', 'class' => 'form-horizontal']) ?>
+              <div class="row">
+                <center style="margin-left:25%">
+                <a href="<?=base_url()?>Registrasi">
+                    <button class="btn btn-warning btn-raised btn-block waves-effect waves-light">UMKM</button>
+                </a>
+                <a href="<?=base_url()?>Registrasi/regFreelancer">
+                    <button class="btn btn-light btn-raised btn-block waves-effect" style="color:black">Freelancer</button>
+                </a>
+              </center>
+              </div>
+
+              <?= form_open(base_url('Auth/regFree'), ['name' => 'form-login', 'class' => 'form-horizontal']) ?>
 
                 <div class="mt-4">
                   <?= validation_errors('<div class="error">', '</div>'); ?>
                 </div>
 
                 <?php $this->alert->tampilkan(); ?>
+
+                <div class="form-group bmd-form-group">
+                  <label for="nama" class="bmd-label-floating">Nama Lengkap</label>
+                  <input type="text" name="nama" class="form-control" id="nama" required>
+                </div>
 
                 <div class="form-group bmd-form-group">
                   <label for="username" class="bmd-label-floating">Username</label>
@@ -57,16 +73,28 @@
                   </button>
                 </div>
 
-                <div class="form-group mt-4">
-                  <div class="custom-control custom-checkbox">
-                    <input type="checkbox" name="remember-me" value="1" class="custom-control-input" id="remember-check">
-                    <label class="custom-control-label" for="remember-check">Biarkan Saya tetap masuk</label>
-                  </div>
+                <div class="form-group bmd-form-group">
+                  <label for="email" class="bmd-label-floating">Email</label>
+                  <input type="email" name="email" class="form-control" id="email" required>
+                </div>
+<!--
+                <div class="form-group bmd-form-group">
+                  <label for="keahlian" class="bmd-label-floating">Keahlian</label>
+                  <select class="form-control" name="kategori">
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                  </select>
+                </div> -->
+
+                <div class="form-group bmd-form-group">
+                  <label for="no_wa" class="bmd-label-floating">No.Whatsapp</label>
+                  <input type="text" name="no_wa" class="form-control" id="no_wa" required>
                 </div>
 
                 <div class="form-group text-right row m-t-40">
                   <div class="col-12">
-                    <button class="btn btn-warning btn-raised btn-block waves-effect waves-light" type="submit">Masuk</button>
+                    <button class="btn btn-warning btn-raised btn-block waves-effect waves-light" type="submit">Registrasi</button>
                   </div>
                 </div>
 
@@ -75,7 +103,7 @@
                     <a href="#" class="text-muted"><i class="mdi mdi-lock"></i> Lupa Password ?</a>
                   </div> -->
                   <div class="col-12 text-center">
-                    <a href="<?=base_url()?>Registrasi" class="text-muted"><i class="mdi mdi-account-circle"></i> Belum punya akun ?</a>
+                    <a href="<?= base_url(); ?>Auth/loghin" class="text-muted"><i class="mdi mdi-account-circle"></i> Sudah punya akun ?</a>
                   </div>
                 </div>
 

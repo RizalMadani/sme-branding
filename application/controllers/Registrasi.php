@@ -5,6 +5,12 @@ class Registrasi extends CI_Controller
 {
 	public function index()
 	{
-		//
+		$this->load->view('register');
 	}
+
+	public function regFreelancer()
+	{
+		$this->load->view('registerfreelancer');
+	}
+
 }
