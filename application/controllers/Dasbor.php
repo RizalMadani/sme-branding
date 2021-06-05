@@ -54,7 +54,7 @@ class Dasbor extends MY_Controller {
 
 	private function _tampilDasborUmkm()
 	{
-		// return $this->load->view('umkm/dasbor');
+		return $this->load->view('umkm/dasbor');
 	}
 }
 

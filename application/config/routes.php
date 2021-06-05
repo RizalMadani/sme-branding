@@ -65,6 +65,12 @@ $route['admin/dasbor'] = 'Dasbor/index';
 $route['freelancer/dasbor'] = 'Dasbor/index';
 
 // ------------------------
+// Route UMKM
+// ------------------------
+$route['umkm'] = 'Dasbor/index';
+$route['umkm/dasbor'] = 'Dasbor/index';
+
+// ------------------------
 // Route landing page
 // ------------------------
 $route['layanan'] = 'Landing_page/layanan';
