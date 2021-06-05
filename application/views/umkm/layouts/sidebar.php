@@ -7,9 +7,8 @@
   <!-- LOGO -->
   <div class="topbar-left">
     <div class="text-center">
-      <!--<a href="index.html" class="logo"><i class="mdi mdi-assistant"></i> Urora</a>-->
       <a href="index.html" class="logo">
-        <img src="<?= base_url(); ?>assets/admin/images/logo-lg.png" alt="" class="logo-large" style="height: 18px;">
+        <img src="<?= base_url(); ?>assets/logos/logo-horizontal.png" alt="logo SME Branding" class="logo-large">
       </a>
     </div>
   </div>

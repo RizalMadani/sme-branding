@@ -6,11 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <title><?= ucfirst($title ?? $this->session->level).' - SME Branding'  ?></title>
-    <meta content="Admin Dashboard" name="description" />
-    <meta content="Mannatthemes" name="author" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <link rel="shortcut icon" href="<?= base_url(); ?>assets/admin/images/favicon.ico">
+    <link rel="shortcut icon" href="assets/favicons/favicon-32x32.png">
 
     <!--Morris Chart CSS -->
     <link rel="stylesheet" href="<?= base_url(); ?>assets/admin/plugins/fullcalendar/vanillaCalendar.css"/>

@@ -20,11 +20,11 @@ File: Menu
 }
 
 .logo-large{
-  height: 100%;
+  height: 32px;
 }
 .topbar-left div:first-child{
   height: 71px;
-  background-color: $primary;
+  background-color: #edf0ff;
 }
 .has_sub.nav-active i.mdi-chevron-right:before {
   content: "\F140";
