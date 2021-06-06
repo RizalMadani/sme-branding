@@ -1,4 +1,5 @@
 <?php $this->load->view('templates/landingpage/header'); ?>
+<?php $this->load->view('templates/landingpage/nav'); ?>
 
 <div class="content-wrapper oh">
 
