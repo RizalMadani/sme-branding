@@ -6,7 +6,8 @@
   <meta charset="utf-8">
   <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="">
+  <meta name="description" content="Platform Layanan Re-branding untuk UMKM">
+  <meta name="theme-color" content="#ffffff">
   
   <!-- Google Fonts -->
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700' rel='stylesheet'>
@@ -18,10 +19,12 @@
   <link rel="stylesheet" href="assets/lp/css/style.css" />
 
   <!-- Favicons -->
-  <link rel="shortcut icon" href="assets/lp/img/favicon.ico">
-  <link rel="apple-touch-icon" href="assets/lp/img/apple-touch-icon.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="assets/lp/img/apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="assets/lp/img/apple-touch-icon-114x114.png">
+  <link rel="shortcut icon" href="assets/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="assets/favicons/android-icon-192x192.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="assets/favicons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-icon-180x180.png">
+  <link rel="manifest" href="assets/manifest.json">
 
 </head>
 
@@ -45,7 +48,7 @@
             <div class="nav__header">
               <!-- Logo -->
               <a href="index.html" class="logo-container flex-child">
-                <img class="logo" src="assets/lp/img/logo.png" srcset="assets/lp/img/logo.png 1x, assets/lp/img/logo@2x.png 2x" alt="logo">
+                <img class="logo" src="assets/logos/logo-horizontal.png" style="height: 48px;">
               </a>
 
               <!-- Mobile toggle -->

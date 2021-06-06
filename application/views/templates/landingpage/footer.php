@@ -8,13 +8,12 @@
                 <div class="widget widget-about-us">
                   <!-- Logo -->
                   <a href="index.html" class="logo-container flex-child">
-                    <img class="logo" src="assets/lp/img/logo.png" srcset="assets/lp/img/logo.png 1x, assets/lp/img/logo@2x.png 2x" alt="logo">
+                    <img class="logo" src="assets/logos/logo-horizontal.png" alt="logo">
                   </a>
-                  <p class="mt-24 mb-32">Tools to Effectively Build Your Brand and Grow Your Business.</p>
+                  <p class="mt-24 mb-32">Menyediakan layanan yang dibutuhkan untuk memulai bisnis Anda menjadi lebih baik.</p>
                   <div class="socials">
                     <a href="https://instagram.com/smespedia" class="social social-instagram" aria-label="instagram" title="Instagram SMESpedia" target="_blank" noopener noreferer><i class="ui-instagram"></i></a>
                     <a href="#" class="social social-facebook" aria-label="facebook" title="facebook" target="_blank"><i class="ui-facebook"></i></a>
-                    <a href="#" class="social social-google-plus" aria-label="google plus" title="google plus" target="_blank"><i class="ui-google"></i></a>
                   </div>
                 </div>
               </div> <!-- end about us -->

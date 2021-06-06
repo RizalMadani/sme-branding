@@ -3115,12 +3115,12 @@ File: Menu
 }
 
 .logo-large {
-  height: 100%;
+  height: 32px;
 }
 
 .topbar-left div:first-child {
   height: 71px;
-  background-color: #3f51b5;
+  background-color: #edf0ff;
 }
 
 .has_sub.nav-active i.mdi-chevron-right:before {
