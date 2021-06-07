@@ -4738,4 +4738,50 @@ dd {
   font-size: 18px;
 }
 
+.custom-bg {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-image: url("../img/Abstract-Envelope.svg");
+  /* background by SVGBackgrounds.com */
+  background-size: cover;
+}
+
+.card--form {
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.card--form-glass {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  box-shadow: inset 0px 0px 20px rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+}
+.card--form-glass a {
+  color: #c54d4d;
+}
+
+.logo--form {
+  height: 80px;
+}
+
+.form-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333B69;
+}
+
+#pass-eye {
+  background: none;
+}
+#pass-eye svg {
+  width: 32px;
+  height: 32px;
+}
+
+.hide-pass {
+  filter: grayscale(1) opacity(0.5);
+}
+
 /*# sourceMappingURL=style.css.map */
