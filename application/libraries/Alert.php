@@ -87,11 +87,28 @@ class Alert {
 	}
 
 	/**
+	 * Ambil alert-alert yang sudah di set
+	 * 
+	 * @param    string    $jenis    Jenis alert yang mau diambil, kosongkan untuk ambil semua
+	 * 
+	 * @return   array
+	 */
+	public function getAlerts(string $jenis = ''):array
+	{
+		if (! empty($jenis)) {
+			return $this->_alerts[$jenis];
+		}
+
+		return $this->_alerts;
+	}
+
+	/**
 	 * Set alert danger
 	 * 
-	 * @param string|array  $pesan  Pesan yang ingin ditampilkan
+	 * @param   string|array  $pesan  Pesan yang ingin ditampilkan
+	 * @param   string        $jenis  Jenis pesan alert
 	 */
-	private function _setAlert($pesan, $jenis)
+	private function _setAlert($pesan, string $jenis)
 	{
 		if (is_array($pesan)) {
 			$this->_alerts[$jenis] += $pesan;
