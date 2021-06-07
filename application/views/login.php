@@ -14,22 +14,30 @@
             </a>
           </div>
 
-          <div class="text-center">
+          <div class="text-center mb-4">
             <span class="form-title">Login Form 1</span>
+          </div>
+
+          <div class="error">
+            <?= validation_errors(); ?>
+
+            <?php foreach($this->alert->getAlerts('danger') as $p): ?>
+              <p><?= $p ?></p>
+            <?php endforeach; ?>
           </div>
 
           <?= form_open('/login', ['class' => 'mt-4']); ?>
 
             <div class="form-group">
               <label for="password">Username</label>
-              <input name="username" id="username" type="text">
+              <input name="username" id="username" type="text" required>
             </div>
 
             <div class="form-group">
               <label for="password">Password</label>
 
               <div class="d-flex align-items-center">
-                <input name="password" id="password" type="password" class="m-0">
+                <input name="password" id="password" type="password" class="m-0" required>
                 <button type="button" class="btn ml-2 hide-pass" id="pass-eye">
                   <svg><use xlink:href="assets/lp/img/icons/orion-svg-sprite.svg#visible-1"></use></svg>
                 </button>
@@ -65,22 +73,30 @@
             </a>
           </div>
 
-          <div class="text-center">
+          <div class="text-center mb-4">
             <span class="form-title">Login Form 2</span>
+          </div>
+
+          <div class="error">
+            <?= validation_errors(); ?>
+
+            <?php foreach($this->alert->getAlerts('danger') as $p): ?>
+              <p><?= $p ?></p>
+            <?php endforeach; ?>
           </div>
 
           <?= form_open('/login', ['class' => 'mt-4']); ?>
 
             <div class="form-group">
               <label for="password">Username</label>
-              <input name="username" id="username" type="text">
+              <input name="username" id="username" type="text" required>
             </div>
 
             <div class="form-group">
               <label for="password">Password</label>
 
               <div class="d-flex align-items-center">
-                <input name="password" id="password" type="password" class="m-0">
+                <input name="password" id="password" type="password" class="m-0" required>
                 <button type="button" class="btn ml-2 hide-pass" id="pass-eye">
                   <svg><use xlink:href="assets/lp/img/icons/orion-svg-sprite.svg#visible-1"></use></svg>
                 </button>
@@ -123,22 +139,7 @@
   <script src="assets/lp/js/plugins.js"></script>
   <script src="assets/lp/js/scripts.js"></script>
 
-  <script>
-    let pass_eye = document.getElementById('pass-eye');
-
-    pass_eye.addEventListener('click', function(){
-      pass_eye.classList.toggle('hide-pass');
-
-      let input_pass = document.getElementById('password');
-      let pass_type = input_pass.type;
-
-      if (pass_type === 'password') {
-          input_pass.type = 'text';
-      } else {
-          input_pass.type = 'password';
-      }
-    });
-  </script>
+  <script src="assets/lp/js/login.js"></script>
 
   <!-- Cookies -->
   <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>

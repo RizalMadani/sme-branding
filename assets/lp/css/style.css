@@ -4784,4 +4784,11 @@ dd {
   filter: grayscale(1) opacity(0.5);
 }
 
+.error p {
+  color: #ec0707;
+}
+.error p:not(:last-child) {
+  margin: 0;
+}
+
 /*# sourceMappingURL=style.css.map */

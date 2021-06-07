@@ -77,3 +77,13 @@
 .hide-pass {
 	filter: grayscale(1) opacity(0.5);
 }
+
+.error {
+	p {
+		color: #ec0707;
+	}
+
+	p:not(:last-child) {
+		margin: 0;
+	}
+}
