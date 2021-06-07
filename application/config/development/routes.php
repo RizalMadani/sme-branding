@@ -20,3 +20,5 @@ $route['buatpassword/(:any)'] = function($plain_text) {
 
 	die;
 };
+
+$route['icons'] = 'Landing_page/icons';
