@@ -29,11 +29,12 @@
   <body class="fixed-left">
 
     <!-- Loader -->
-    <div id="preloader">
+    <!-- TODO: gunakan ini saat production saja -->
+    <!-- <div id="preloader">
       <div id="status">
         <div class="spinner"></div>
       </div>
-    </div>
+    </div> -->
 
     <!-- Begin page -->
     <div id="wrapper">
