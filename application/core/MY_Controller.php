@@ -25,6 +25,9 @@ class MY_Controller extends CI_controller {
 		if ( ! $this->_isAuthorized($urlLevel)) {
 			redirect('login');
 		}
+
+		// Isi session dengan data sering yang dibutuhkan
+		$this->_pemanasan($urlLevel);
 	}
 
 	/**
@@ -96,13 +99,23 @@ class MY_Controller extends CI_controller {
 			$this->session->foto_user = $user->foto;
 		}
 
+		return TRUE;
+	}
+
+	/**
+	 * Isi session dengan data yang dibutuhkan
+	 * jika belum
+	 */
+	private function _pemanasan(string $level)
+	{
+		// $level = user_level($level);
+		$idUser = $this->session->id_user;
+
 		// Jika level user adalah umkm maka set id_umkm ke session jika belum ada
 		if ($level === 'umkm' && ! $this->session->has_userdata('id_umkm')) {
 			$this->load->model('Model_umkm');
 
-			$this->session->id_umkm = $this->Model_umkm->getIdUmkm($user->id_user);
+			$this->session->id_umkm = $this->Model_umkm->getIdUmkm($idUser);
 		}
-
-		return TRUE;
 	}
 }

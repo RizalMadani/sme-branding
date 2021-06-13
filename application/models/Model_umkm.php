@@ -32,6 +32,8 @@ class Model_umkm extends CI_Model {
 	{
 		$id_user = $this->db->escape($id_user);
 
-		return $this->db->query("SELECT id_user FROM umkm WHERE id_user = ".$id_user)->row();
+		$result =  $this->db->query("SELECT id_umkm FROM umkm WHERE id_user = ".$id_user)->row();
+
+		return $result->id_umkm;
 	}
 }
