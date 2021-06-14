@@ -25,4 +25,9 @@ class Landing_page extends CI_Controller {
 	{
 		$this->load->view('landingpage/kontak');
 	}
+
+	public function icons()
+	{
+		$this->load->view('landingpage/icons');
+	}
 }

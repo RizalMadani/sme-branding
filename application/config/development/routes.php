@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+$route['isidata/(:any)/(:num)'] = 'Seeder/index/$1/$2';
+
 $route['muntah'] = function() {
 	echo "<pre>";
 	var_dump($_SESSION);
@@ -20,3 +22,5 @@ $route['buatpassword/(:any)'] = function($plain_text) {
 
 	die;
 };
+
+$route['icons'] = 'Landing_page/icons';

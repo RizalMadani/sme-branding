@@ -2,7 +2,7 @@
   <?php if (empty($pesan)) continue; ?>
   <div class="row">
     <div class="col-12">
-      <div class="alert alert-<?= $jenis; ?> alert-dismissible fade show  mb-0 mt-3" role="alert">
+      <div class="alert alert-<?= $jenis; ?> alert-dismissible fade show" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

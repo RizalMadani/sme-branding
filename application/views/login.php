@@ -1,27 +1,49 @@
-<!DOCTYPE html>
-<html lang="id">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <title>Login - SME Branding</title>
+<?php $this->load->view('templates/landingpage/header'); ?>
+<!-- background by SVGBackgrounds.com -->
+<div class="custom-bg"></div>
 
-    <link rel="shortcut icon" href="assets/admin/images/favicon.ico">
+  <div class="container py-4">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8">
+
+      <!-- Form 1 -->
+      <div class="card--form p-4">
+          <div class="text-center mb-4">
+            <a href="<?= base_url(); ?>" class="logo-container">
+              <img class="logo--form" src="assets/logos/logo-vertikal.png">
+            </a>
+          </div>
+
+          <div class="text-center mb-4">
+            <span class="form-title">Login Form 1</span>
+          </div>
 
     <link href="<?=base_url()?>assets/admin/plugins/animate/animate.css" rel="stylesheet" type="text/css">
     <link href="<?=base_url()?>assets/admin/css/bootstrap-material-design.min.css" rel="stylesheet" type="text/css">
     <link href="<?=base_url()?>assets/admin/css/icons.css" rel="stylesheet" type="text/css">
     <link href="<?=base_url()?>assets/admin/css/style.css" rel="stylesheet" type="text/css">
 
-  </head>
-  <body>
+            <?php foreach($this->alert->getAlerts('danger') as $p): ?>
+              <p><?= $p ?></p>
+            <?php endforeach; ?>
+          </div>
 
+          <?= form_open('/login', ['class' => 'mt-4']); ?>
 
-  <div class="accountbg-custom"></div>
+            <div class="form-group">
+              <label for="password">Username</label>
+              <input name="username" id="username" type="text" required>
+            </div>
 
-  <div class="container">
+            <div class="form-group">
+              <label for="password">Password</label>
 
-    <div class="row py-5" style="align-items: center;">
+              <div class="d-flex align-items-center">
+                <input name="password" id="password" type="password" class="m-0" required>
+                <button type="button" class="btn ml-2 hide-pass" id="pass-eye">
+                  <svg><use xlink:href="assets/lp/img/icons/orion-svg-sprite.svg#visible-1"></use></svg>
+                </button>
+              </div>
 
       <div class="col-md-6 col-lg-7 text-center" id="dekorasi">
         <img src="<?=base_url()?>assets/admin/images/logosme.jpg" alt="dekorasi" class="img-fluid" style="width: 100%;border-radius:40px;">
@@ -81,13 +103,83 @@
 
               <?= form_close(); ?>
 
+            <div class="text-center">
+              <a href="<?= base_url(); ?>register" style="font-weight: bold;">
+                Belum mendaftar?
+              </a>
             </div>
-          </div>
+
+          <?= form_close(); ?>
         </div>
+
+        <div class="m-4">&emsp;</div>
+
+        <!-- Form 2 -->
+        <div class="card--form-glass p-4">
+          <div class="text-center mb-4">
+            <a href="<?= base_url(); ?>" class="logo-container">
+              <img class="logo--form" src="assets/logos/logo-vertikal.png">
+            </a>
+          </div>
+
+          <div class="text-center mb-4">
+            <span class="form-title">Login Form 2</span>
+          </div>
+
+          <div class="error">
+            <?= validation_errors(); ?>
+
+            <?php foreach($this->alert->getAlerts('danger') as $p): ?>
+              <p><?= $p ?></p>
+            <?php endforeach; ?>
+          </div>
+
+          <?= form_open('/login', ['class' => 'mt-4']); ?>
+
+            <div class="form-group">
+              <label for="password">Username</label>
+              <input name="username" id="username" type="text" required>
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+
+              <div class="d-flex align-items-center">
+                <input name="password" id="password" type="password" class="m-0" required>
+                <button type="button" class="btn ml-2 hide-pass" id="pass-eye">
+                  <svg><use xlink:href="assets/lp/img/icons/orion-svg-sprite.svg#visible-1"></use></svg>
+                </button>
+              </div>
+
+            </div>
+
+            <div class="mt-4">
+              <input type="checkbox" class="checkbox-input" name="remember-me" id="remember-me" value="1" checked="checked">
+              <label for="remember-me">Biarkan Saya tetap masuk</label>
+            </div>
+
+            <div class="mt-48">
+              <input type="submit" class="btn btn--md btn--color" value="Login">
+            </div>
+
+            <div class="text-center">
+              <a href="<?= base_url(); ?>register" style="font-weight: bold;">
+                Belum mendaftar?
+              </a>
+            </div>
+
+          <?= form_close(); ?>
+        </div>
+
       </div>
     </div>
   </div>
 
+      <div id="back-to-top">
+        <a href="#top"><i class="ui-arrow-up"></i></a>
+      </div>
+
+  </main> <!-- end main wrapper -->
 
   <!-- jQuery  -->
   <script src="<?=base_url()?>assets/admin/js/jquery.min.js"></script>
@@ -104,9 +196,10 @@
 
   <script src="<?=base_url()?>assets/admin/pages/login.js"></script>
 
+  <script src="assets/lp/js/login.js"></script>
 
   <!-- App js -->
   <script src="<?=base_url()?>assets/admin/js/app.js"></script>
 
-  </body>
+</body>
 </html>

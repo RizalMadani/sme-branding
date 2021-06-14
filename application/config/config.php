@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/sme-branding/';
+$config['base_url'] = 'https://sme-branding.ppkm.info/';
 
 /*
 |--------------------------------------------------------------------------
@@ -223,7 +223,7 @@ $config['allow_get_array'] = TRUE;
 | your log files will fill up very fast.
 |
 */
-$config['log_threshold'] = array(1, 2);
+$config['log_threshold'] = 1;
 
 /*
 |--------------------------------------------------------------------------

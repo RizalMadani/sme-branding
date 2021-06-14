@@ -25,7 +25,7 @@ class Auth extends CI_Controller {
 	public function login()
 	{
 		if ($this->input->method() !== 'post') {
-			return $this->load->view('login');
+			return $this->load->view('login', ['title' => 'Login']);
 		}
 
 		$this->load->library('form_validation');
@@ -34,7 +34,7 @@ class Auth extends CI_Controller {
 		$this->form_validation->set_rules('password','Password','required');
 
 		if ($this->form_validation->run() == FALSE) {
-			return $this->load->view('login');
+			return $this->load->view('login', ['title' => 'Login']);
 		}
 
 
@@ -50,7 +50,7 @@ class Auth extends CI_Controller {
 
 			log_message('debug', 'Password not correct');
 
-			return $this->load->view('login');
+			return $this->load->view('login', ['title' => 'Login']);
 		}
 
 		$userLevel = user_level($user->level);
