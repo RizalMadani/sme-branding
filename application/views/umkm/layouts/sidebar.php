@@ -27,11 +27,35 @@
         </li>
 
         <li>
-          <a href="<?= base_url(); ?>umkm/order/baru" class="waves-effect">
+          <a href="<?= base_url(); ?>umkm/pesanlayanan" class="waves-effect">
             <i class="mdi mdi-plus"></i>
             <span>Pesan Layanan Baru</span>
           </a>
-        </li>
+
+      <!-- <li>
+        <a href="javascript:void(0);" class="waves-effect">
+            <i class="mdi mdi-plus"></i>
+            <span>Pesan Layanan</span>
+            <span class="float-right">
+              <i class="mdi mdi-chevron-right"></i>
+            </span>
+          </a>
+          <ul class="list-unstyled">
+            <li>
+              <a href="<?=base_url()?>umkm/pesan/redesign/kemasan"  title="Desain ulang kemasan">
+                <i lang="en">Redesign</i> Kemasan
+              </a>
+            </li>
+            <li>
+              <a href="<?=base_url()?>umkm/pesan/redesign/logo"  title="Desain ulang logo">
+                <i lang="en">Redesign</i> Logo
+              </a>
+            </li>
+            <li>
+              <a href="<?=base_url()?>umkm/pesan/konsul-branding">Konsultasi Branding</a>
+            </li>
+          </ul>
+        </li> -->
 
         <li>
           <a href="<?= base_url(); ?>umkm/order/lihat" class="waves-effect">

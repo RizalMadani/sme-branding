@@ -15,7 +15,6 @@ class Dasbor extends MY_Controller {
 			redirect('login');
 		}
 
-		// TODO: sesuaikan nama level dengan yang ada di db
 		switch ($level) {
 			case 'admin':
 				$this->_tampilDasborAdmin();
