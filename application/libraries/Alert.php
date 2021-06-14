@@ -24,8 +24,8 @@ class Alert {
 		// Key array adalah nama class alert
 		// dari Urora theme dashboard
 		$this->_alerts = array(
-			'danger'  => array(),
 			'primary' => array(),
+			'danger'  => array(),
 			'warning' => array(),
 			'info'    => array(),
 		);
@@ -100,6 +100,32 @@ class Alert {
 		}
 
 		return $this->_alerts;
+	}
+
+	/**
+	 * Has Alert?
+	 * 
+	 * Cek apakah ada alert yang pernah di-set.
+	 * Bisa cek semua jenis atau jenis tertentu saja.
+	 * 
+	 * @param    string   $jenis    Jenis alert yang mau dicek
+	 * 
+	 * @return   boolean
+	 */
+	public function hasAlert(string $jenis = ''):bool
+	{
+		if ( ! empty($jenis)) {
+			return ! empty($this->_alerts[$jenis]);
+		}
+
+		// Jika tidak ada argumen $jenis yang diberikan maka cek semua jenis
+		foreach ($this->_alerts as $alert) {
+			if ( ! empty($alerts)) {
+				return TRUE;
+			}
+		}
+
+		return FALSE;
 	}
 
 	/**
