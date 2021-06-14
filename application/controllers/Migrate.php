@@ -24,8 +24,12 @@ class Migrate extends CI_Controller {
 
 		if ($this->migration->current() === FALSE)
 		{
-				show_error($this->migration->error_string());
+			show_error($this->migration->error_string());
+
+			return;
 		}
+
+		echo "Database sudah di-update".PHP_EOL.PHP_EOL;
 	}
 
 }
