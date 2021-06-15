@@ -20,6 +20,10 @@ class Auth extends CI_Controller {
 			return $this->load->view('login', ['title' => 'Login']);
 		}
 
+		// -----------------------
+		// Proses verifikasi
+		// (jika ada form login yang disubmit)
+		// -----------------------
 		$this->load->library('form_validation');
 
 		$this->form_validation->set_rules('username','Username','required');
