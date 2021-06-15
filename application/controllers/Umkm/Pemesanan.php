@@ -43,6 +43,7 @@ class Pemesanan extends MY_Controller
 
 		// TODO: tanya alur pemesanan, kolom jumlah,
 		// keterangan order hanya untuk layanan redesign?
+		// TODO: tanya, ga sesuai dg yg ada di google form?
 		$this->load->view('umkm/form_redesign', $data);
 	}
 

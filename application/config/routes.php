@@ -54,15 +54,34 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 // ------------------------
+// Route Auth
+// ------------------------
+$route['login'] = 'Auth/login';
+$route['logout'] = 'Auth/logout';
+$route['verify'] = 'Auth/verify';
+
+
+// ------------------------
+// Route Registrasi
+// ------------------------
+// $route['url']        = 'Controller/method'
+$route['regUmkm']       = 'Registrasi/regUmkm';
+$route['regFreelancer'] = 'Registrasi/regFreelancer';
+
+
+// ------------------------
 // Route Admin
 // ------------------------
+// base_url()admin/dasbor = Controller Dasbor/Method index()
 $route['admin/dasbor'] = 'Dasbor/index';
 // $route['admin/pemesanan/edit'] = 'Admin/Controller/method';
+
 
 // ------------------------
 // Route Freelancer
 // ------------------------
 $route['freelancer/dasbor'] = 'Dasbor/index';
+
 
 // ------------------------
 // Route UMKM
@@ -80,10 +99,3 @@ $route['umkm/pesanlayanan'] = 'Umkm/Pemesanan/pesanLayanan';
 $route['layanan'] = 'Landing_page/layanan';
 $route['tentang'] = 'Landing_page/tentang';
 $route['kontak'] = 'Landing_page/kontak';
-
-// ------------------------
-// Route Auth
-// ------------------------
-$route['login'] = 'Auth/login';
-$route['logout'] = 'Auth/logout';
-$route['verify'] = 'Auth/verify';
