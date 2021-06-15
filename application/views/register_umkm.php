@@ -7,7 +7,7 @@
     <?= validation_errors('<div class="error">', '</div>'); ?>
   </div>
 
-    <?php $this->alert->tampilkan(); ?>
+  <?php $this->alert->tampilkan(); ?>
 
   <span class="text-muted">Daftar sebagai: </span>
   <div class="d-flex" id="container-pilihan-registrasi">
@@ -62,9 +62,6 @@
     </div>
 
     <div class="form-group row">
-      <!-- <div class="col-sm-6">
-        <a href="#" class="text-muted"><i class="mdi mdi-lock"></i> Lupa Password ?</a>
-      </div> -->
       <div class="col-12 text-center">
         <a href="login" class="text-muted"><i class="mdi mdi-account-circle"></i> Sudah punya akun ?</a>
       </div>
