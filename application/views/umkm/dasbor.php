@@ -36,6 +36,73 @@
           </div>
         </div>
 
+        <div class="row">
+          <!-- Column -->
+          <div class="col-sm-12 col-md-6 col-xl-3">
+              <div class="card bg-primary m-b-30">
+                  <div class="card-body">
+                      <div class="d-flex row">
+                          <div class="col-3 align-self-center">
+                              <div class="round">
+                                  <i class="mdi mdi-file"></i>
+                              </div>
+                          </div>
+                          <div class="col-8 ml-auto align-self-center text-center">
+                              <div class="m-l-10 text-white float-right">
+                                  <h5 class="mt-0 round-inner"><?= $jumlah_user; ?></h5>
+                                  <p class="mb-0 ">Jumlah User</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- Column -->
+          <!-- Column -->
+          <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+              <div class="card bg-danger m-b-30">
+                  <div class="card-body">
+                      <div class="d-flex row">
+                          <div class="col-3 align-self-center">
+                              <div class="round">
+                                  <i class="mdi mdi-file-outline"></i>
+                              </div>
+                          </div>
+                          <div class="col-8 text-center ml-auto align-self-center">
+                              <div class="m-l-10 text-white float-right">
+                                  <h5 class="mt-0 round-inner"><?= $jumlah_umkm; ?></h5>
+                                  <p class="mb-0 ">Jumlah Umkm</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- Column -->
+          <!-- Column -->
+          <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+              <div class="card bg-info m-b-30">
+                  <div class="card-body">
+                      <div class="d-flex row">
+                          <div class="col-3 align-self-center">
+                              <div class="round ">
+                                  <i class="mdi mdi-store"></i>
+                              </div>
+                          </div>
+                          <div class="col-8 ml-auto align-self-center text-center">
+                              <div class="m-l-10 text-white float-right">
+                                  <h5 class="mt-0 round-inner">&plusmn;<?= $jumlah_freelancer; ?></h5>
+                                  <p class="mb-0 ">Jumlah Freelancer</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- Column -->
+          <!-- Column -->
+      </div>
+
         <!-- <div class="row">
           <div class="col-md-12 col-xl-6">
             <div class="card m-b-30">

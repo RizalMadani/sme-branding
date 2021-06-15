@@ -53,7 +53,15 @@ class Dasbor extends MY_Controller {
 
 	private function _tampilDasborUmkm()
 	{
-		return $this->load->view('umkm/dasbor');
+		// $data     = $this->Model_dasbor->getRingkasan();
+
+		$data = array(
+			'jumlah_umkm'       => $this->db->count_all('umkm'),
+			'jumlah_user'       => $this->db->count_all('user'),
+			'jumlah_freelancer' => $this->db->get_where('user', ['level' => 'freelancer'])->num_rows(),
+		);
+
+		return $this->load->view('umkm/dasbor', $data);
 	}
 }
 
