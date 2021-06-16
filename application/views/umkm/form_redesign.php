@@ -49,7 +49,7 @@
             <div class="card m-b-30">
               <div class="card-body">
 
-                <?= form_open_multipart('umkm/pesanlayanan', ['class' => 'mb-0']); ?>
+                <?= form_open_multipart('umkm/pesan-layanan', ['class' => 'mb-0']); ?>
                   <div class="form-group">
                     <label for="nama-produk" class="bmd-label-floating">Nama Produk</label>
                     <input type="text" name="nama-produk" class="form-control" id="nama-produk" value="<?= set_value('nama-produk'); ?>" required>

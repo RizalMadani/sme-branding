@@ -87,7 +87,7 @@ $route['freelancer/dasbor'] = 'Dasbor/index';
 // ------------------------
 $route['umkm'] = 'Dasbor/index';
 $route['umkm/dasbor'] = 'Dasbor/index';
-$route['umkm/pesanlayanan'] = 'Umkm/Pemesanan/pesanLayanan';
+$route['umkm/pesan-layanan'] = 'Umkm/Pemesanan/pesanLayanan';
 // $route['umkm/pesan/redesign'] = 'Umkm/Pemesanan/redesign';
 // $route['umkm/pesan/redesign/kemasan'] = 'Umkm/Pemesanan/redesign/kemasan';
 // $route['umkm/pesan/redesign/logo'] = 'Umkm/Pemesanan/redesign/logo';

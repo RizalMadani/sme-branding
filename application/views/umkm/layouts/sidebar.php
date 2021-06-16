@@ -27,7 +27,7 @@
         </li>
 
         <li>
-          <a href="<?= base_url(); ?>umkm/pesanlayanan" class="waves-effect">
+          <a href="<?= base_url(); ?>umkm/pesan-layanan" class="waves-effect">
             <i class="mdi mdi-plus"></i>
             <span>Pesan Layanan Baru</span>
           </a>
@@ -58,7 +58,7 @@
         </li> -->
 
         <li>
-          <a href="<?= base_url(); ?>umkm/order/lihat" class="waves-effect">
+          <a href="<?= base_url(); ?>umkm/lihat-pesanan" class="waves-effect">
             <i class="mdi mdi-format-list-bulleted"></i>
             <span>Lihat Pesanan Saya</span>
           </a>
