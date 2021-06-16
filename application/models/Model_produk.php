@@ -10,7 +10,7 @@ class Model_produk extends CI_Model {
 	 * 
 	 * @return   object
 	 */
-	public function getPemesanan($id_produk)
+	public function getProduk($id_produk)
 	{
 		$id_produk = $this->db->escape($id_produk);
 
@@ -24,7 +24,7 @@ class Model_produk extends CI_Model {
 	 * 
 	 * @return   object
 	 */
-	public function getAllPemesanan()
+	public function getAllProduk()
 	{
 		return $this->db->query("SELECT * FROM produk")->result();
 	}
