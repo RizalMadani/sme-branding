@@ -23,6 +23,10 @@
     <script src="<?= base_url(); ?>assets/admin/js/jquery.nicescroll.js"></script>
     <script src="<?= base_url(); ?>assets/admin/js/jquery.scrollTo.min.js"></script>
 
+    <script src="<?= base_url(); ?>assets/admin/pages/datatables.init.js"></script>
+    <script src="<?= base_url(); ?>assets/admin/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="<?= base_url(); ?>assets/admin/plugins/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="<?= base_url(); ?>assets/admin/plugins/datatables/dataTables.responsive.min.js"></script>
 
     <script src="<?= base_url(); ?>assets/admin/plugins/carousel/owl.carousel.min.js"></script>
     <script src="<?= base_url(); ?>assets/admin/plugins/fullcalendar/vanillaCalendar.js"></script>

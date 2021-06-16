@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="<?= base_url(); ?>assets/admin/plugins/carousel/owl.carousel.min.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/admin/plugins/carousel/owl.theme.default.min.css">
 
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/admin/plugins/datatables/dataTables.bootstrap4.min.css">
+
     <link rel="stylesheet" href="<?= base_url(); ?>assets/admin/plugins/animate/animate.css" type="text/css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/admin/css/bootstrap-material-design.min.css" type="text/css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/admin/css/icons.css" type="text/css">

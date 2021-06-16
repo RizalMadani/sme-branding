@@ -21,6 +21,13 @@ class Pemesanan extends MY_Controller
 
 	// ---------------------------
 
+	public function __construct()
+	{
+		parent::__construct();
+
+		$this->load->model('Model_pemesanan');
+	}
+
 	/**
 	 * Tampilkan form untuk pesan layanan
 	 *
@@ -45,6 +52,22 @@ class Pemesanan extends MY_Controller
 		// keterangan order hanya untuk layanan redesign?
 		// TODO: tanya, ga sesuai dg yg ada di google form?
 		$this->load->view('umkm/form_redesign', $data);
+	}
+
+	public function lihatPesanan($idPesan = '')
+	{
+		// Jika tidak ada $id_pesan di url, cth: localhost/sme-branding/umkm/lihat-pesanan/
+		// maka tampilkan semua pesanan
+		if (empty($idPesan)) {
+			$idUmkm = $this->session->id_umkm;
+
+			$data = array (
+				'daftar_pesanan' => $this->Model_pemesanan->getPemesananUmkm($idUmkm)
+			);
+
+			$this->load->view('umkm/lihat_semua_pesanan', $data);
+		}
+
 	}
 
 	/**
