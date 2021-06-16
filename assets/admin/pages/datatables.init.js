@@ -6,8 +6,12 @@
  */
 
 $(document).ready(function() {
-    $('#datatable').DataTable();
-    $('#datatable2').DataTable();
+    $('#datatable').DataTable({
+		"scrollX": true
+	});
+    $('#datatable2').DataTable({
+		"scrollX": true
+	});
 
     //Buttons examples
     // var table = $('#datatable-buttons').DataTable({
