@@ -36,4 +36,9 @@ class Model_umkm extends CI_Model {
 
 		return $result->id_umkm;
 	}
+
+	public function insert_umkm($data)
+	{
+		return $this->db->insert('umkm',$data);
+	}
 }

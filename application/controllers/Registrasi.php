@@ -49,12 +49,15 @@ class Registrasi extends CI_Controller
 			'status'   => '1'
 		);
 
-			$dataumkm = array(
-				'id_user' => $idk->iduser,
-			);
+		$dataumkm = array(
+			'id_user' => $idk->iduser,
+		);
 
 		$cek = $this->Model_user->insert_user($data);
-		$cekumkm = $this->Model_user->insert_umkm($dataumkm);
+
+		$this->load->model('Model_umkm');
+		$cekumkm = $this->Model_umkm->insert_umkm($dataumkm);
+
 		if ($cek) {
 			if ($cekumkm) {
 				redirect('login');
