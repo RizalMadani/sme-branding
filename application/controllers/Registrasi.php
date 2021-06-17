@@ -3,12 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  * Class Controller untuk mengurusi registrasi
- * 
+ *
  * Registrasi UMKM, registrasi Freelancer
  */
 class Registrasi extends CI_Controller
 {
-	
+
 	public function __construct()
     {
         parent::__construct();
@@ -36,7 +36,9 @@ class Registrasi extends CI_Controller
 		$email       = $this->input->post('email');
 		$noWA        = $this->input->post('no_wa');
 
+		$idk = $this->Model_user->findIDUser();
 		$data = array (
+			'id_user'  => $idk->iduser,
 			'username' => $username,
 			'password' => password_hash($password, PASSWORD_DEFAULT),
 			'nama'     => $namalengkap,
@@ -47,10 +49,16 @@ class Registrasi extends CI_Controller
 			'status'   => '1'
 		);
 
-		$cek = $this->Model_user->insert_user($data);
+			$dataumkm = array(
+				'id_user' => $idk->iduser,
+			);
 
+		$cek = $this->Model_user->insert_user($data);
+		$cekumkm = $this->Model_user->insert_umkm($dataumkm);
 		if ($cek) {
-			redirect('login');
+			if ($cekumkm) {
+				redirect('login');
+			}
 		}
 	}
 

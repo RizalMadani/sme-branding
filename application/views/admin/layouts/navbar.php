@@ -57,8 +57,11 @@
         <!-- item-->
         <a href="javascript:void(0);" class="dropdown-item notify-item">
           <div class="notify-icon">
-            <img src="<?= base_url(); ?>assets/admin/images/users/avatar-4.jpg" alt="user-img" class="img-fluid rounded-circle"
-            /> </div>
+            <?php if ($this->session->foto_user){ ?>
+              <img src="<?=$this->session->foto_user; ?>" alt="user" class="rounded-circle img-thumbnail">
+            <?php }else{ ?>
+            <img src="<?= base_url(); ?>uploads/foto_user/umkm.png" alt="user" class="rounded-circle img-thumbnail">
+          <?php } ?></div>
           <p class="notify-details">
             <b>Luis M. Konrad</b>
             <small class="text-muted">It is a long established fact that a reader will</small>
@@ -131,9 +134,11 @@
       <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
         aria-expanded="false">
         <!-- Sementara pakai ini, ganti dg yg di bawah jika sdh ada db -->
-        <img src="<?= base_url(); ?>assets/admin/images/users/avatar-1.jpg" alt="user" class="rounded-circle img-thumbnail">
-
-        <!-- <img src="<?= $this->session->foto_user; ?>" alt="user" class="rounded-circle img-thumbnail"> -->
+        <?php if ($this->session->foto_user){ ?>
+          <img src="<?=$this->session->foto_user; ?>" alt="user" class="rounded-circle img-thumbnail">
+        <?php }else{ ?>
+        <img src="<?= base_url(); ?>uploads/foto_user/admin.png" alt="user" class="rounded-circle img-thumbnail">
+      <?php } ?>
       </a>
       <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
         <!-- item-->

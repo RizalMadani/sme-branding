@@ -9,9 +9,11 @@
       <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
         aria-expanded="false">
         <!-- Sementara pakai ini, ganti dg yg di bawah jika sdh ada db -->
-        <img src="<?= base_url(); ?>assets/admin/images/users/avatar-1.jpg" alt="user" class="rounded-circle img-thumbnail">
-
-        <!-- <img src="<?= $this->session->foto_user; ?>" alt="user" class="rounded-circle img-thumbnail"> -->
+        <?php if ($this->session->foto_user){ ?>
+          <img src="<?= base_url(); ?>uploads/foto_user/<?=$this->session->foto_user; ?>" alt="user" class="rounded-circle img-thumbnail">
+        <?php }else{ ?>
+        <img src="<?= base_url(); ?>uploads/foto_user/umkm.png" alt="user" class="rounded-circle img-thumbnail">
+      <?php } ?>
       </a>
       <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
         <!-- item-->

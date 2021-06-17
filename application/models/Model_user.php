@@ -51,4 +51,15 @@ class Model_user extends CI_Model {
 	{
 		return $this->db->insert('user',$data);
 	}
+
+	public function findIDUser()
+	{
+		return $this->db->query("SELECT (id_user+1) as iduser FROM user ORDER BY id_user DESC")->row();
+	}
+
+	public function insert_umkm($data)
+	{
+		return $this->db->insert('umkm',$data);
+	}
+
 }
