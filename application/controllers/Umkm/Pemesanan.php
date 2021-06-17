@@ -70,6 +70,12 @@ class Pemesanan extends MY_Controller
 
 		$pesanan = $this->Model_pemesanan->getPemesanan($idPesan);
 
+		if (is_null($pesanan) || $pesanan->id_umkm != $idUmkm) {
+			$this->alert->alertDanger('Pesanan tidak diketahui');
+
+			redirect('umkm/lihat-pesanan');
+		}
+
 		// Proses ambil file-file gambar produk (foto, logo, kemasan)
 		$this->load->model('Model_produk');
 		$gambar = $this->Model_produk->getFile($pesanan->id_produk);
@@ -81,7 +87,6 @@ class Pemesanan extends MY_Controller
 		);
 
 		$this->load->view('umkm/lihat_pesanan', $data);
-		// dd($data);
 	}
 
 	/**

@@ -90,6 +90,7 @@ $route['umkm/dasbor'] = 'Dasbor/index';
 $route['umkm/pesan-layanan'] = 'Umkm/Pemesanan/pesanLayanan';
 $route['umkm/lihat-pesanan'] = 'Umkm/Pemesanan/lihatPesanan';
 $route['umkm/lihat-pesanan/(:num)'] = 'Umkm/Pemesanan/lihatPesanan/$1';
+$route['umkm/edit-pesanan/(:num)'] = 'Umkm/Pemesanan/editPesanan/$1';
 // $route['umkm/pesan/redesign'] = 'Umkm/Pemesanan/redesign';
 // $route['umkm/pesan/redesign/kemasan'] = 'Umkm/Pemesanan/redesign/kemasan';
 // $route['umkm/pesan/redesign/logo'] = 'Umkm/Pemesanan/redesign/logo';
