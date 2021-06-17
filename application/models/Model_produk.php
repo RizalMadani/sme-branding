@@ -6,7 +6,7 @@ class Model_produk extends CI_Model {
 	/**
 	 * Ambil data produk berdasarkan id_produk
 	 * 
-	 * @param    int|string $id_produk  id_produk
+	 * @param    int|string  $id_produk  id_produk
 	 * 
 	 * @return   object
 	 */
@@ -20,8 +20,6 @@ class Model_produk extends CI_Model {
 	/**
 	 * Ambil semua data produk
 	 * 
-	 * @param    int|sttring $id_produk  id_produk
-	 * 
 	 * @return   object
 	 */
 	public function getAllProduk()
@@ -30,11 +28,37 @@ class Model_produk extends CI_Model {
 	}
 
 	/**
+	 * Ambil file-file image sebuah produk
+	 * 
+	 * (foto, logo, kemasan)
+	 * 
+	 * @param    int|string  $id_produk  id_produk
+	 * 
+	 * @return   object
+	 */
+	public function getFile($id_produk)
+	{
+		$id_produk = $this->db->escape($id_produk);
+
+		$foto_produk    = $this->db->query("SELECT foto FROM foto_produk WHERE id_produk = ".$id_produk)->result();
+		$logo_produk    = $this->db->query("SELECT logo FROM logo_produk WHERE id_produk = ".$id_produk)->result();
+		$kemasan_produk = $this->db->query("SELECT foto_kemasan FROM kemasan_produk WHERE id_produk = ".$id_produk)->result();
+
+		$data = (object) [
+			'foto_produk' => $foto_produk,
+			'logo_produk' => $logo_produk,
+			'kemasan_produk' => $kemasan_produk,
+		];
+
+		return $data;
+	}
+
+	/**
 	 * Masukan data ke tabel produk
 	 * 
-	 * @param    array  $data Data yang mau dimasukan
+	 * @param    array  $data  Data yang mau di-insert
 	 * 
-	 * @return   int          id_produk data yang baru di-insert
+	 * @return   int           id_produk data yang baru di-insert
 	 */
 	public function insert($data)
 	{

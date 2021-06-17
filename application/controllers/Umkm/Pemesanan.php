@@ -56,18 +56,32 @@ class Pemesanan extends MY_Controller
 
 	public function lihatPesanan($idPesan = '')
 	{
+		$idUmkm = $this->session->id_umkm;
+
 		// Jika tidak ada $id_pesan di url, cth: localhost/sme-branding/umkm/lihat-pesanan/
 		// maka tampilkan semua pesanan
 		if (empty($idPesan)) {
-			$idUmkm = $this->session->id_umkm;
-
 			$data = array (
 				'daftar_pesanan' => $this->Model_pemesanan->getPemesananUmkm($idUmkm)
 			);
 
-			$this->load->view('umkm/lihat_semua_pesanan', $data);
+			return $this->load->view('umkm/lihat_semua_pesanan', $data);
 		}
 
+		$pesanan = $this->Model_pemesanan->getPemesanan($idPesan);
+
+		// Proses ambil file-file gambar produk (foto, logo, kemasan)
+		$this->load->model('Model_produk');
+		$gambar = $this->Model_produk->getFile($pesanan->id_produk);
+
+
+		$data = array(
+			'pesanan' => $pesanan,
+			'gambar'  => $gambar
+		);
+
+		$this->load->view('umkm/lihat_pesanan', $data);
+		// dd($data);
 	}
 
 	/**

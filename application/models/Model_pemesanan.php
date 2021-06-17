@@ -6,7 +6,7 @@ class Model_pemesanan extends CI_Model {
 	/**
 	 * Ambil data pemesanan berdasarkan id_pesan
 	 *
-	 * @param    int|string $id_pesan  id_pesan
+	 * @param    int|string  $id_pesan  id_pesan
 	 *
 	 * @return   object
 	 */
@@ -14,7 +14,17 @@ class Model_pemesanan extends CI_Model {
 	{
 		$id_pesan = $this->db->escape($id_pesan);
 
-		return $this->db->query("SELECT * FROM pemesanan WHERE id_pesan = ".$id_pesan)->row();
+		$query =  $this->db->query("SELECT pemesanan.*, l.*, pr.*, u.*, p.nama AS nama_pengelola, f.nama AS nama_freelancer
+			FROM pemesanan 
+			LEFT JOIN user AS p ON(p.id_user = pemesanan.id_pengelola)
+			LEFT JOIN user AS f ON(f.id_user = pemesanan.id_freelancer)
+			JOIN layanan AS l USING(id_layanan)
+			JOIN produk AS pr USING(id_produk)
+			JOIN umkm AS u USING(id_umkm)
+			WHERE id_pesan = ".$id_pesan
+		);
+
+		return $query->row();
 	}
 
 	/**
@@ -26,10 +36,13 @@ class Model_pemesanan extends CI_Model {
 	 */
 	public function getAllPemesanan($order = 'DESC')
 	{
-		$query = $this->db->query("SELECT *
-			FROM pemesanan
-			JOIN layanan USING(id_layanan)
-			JOIN produk USING(id_produk)
+		$query = $this->db->query("SELECT pemesanan.*, l.*, pr.*, u.*, p.nama AS pengelola, f.nama AS freelancer
+			FROM pemesanan 
+			LEFT JOIN user AS p ON(p.id_user = pemesanan.id_pengelola)
+			LEFT JOIN user AS f ON(f.id_user = pemesanan.id_freelancer)
+			JOIN layanan AS l USING(id_layanan)
+			JOIN produk AS pr USING(id_produk)
+			JOIN umkm AS u USING(id_umkm)
 			ORDER BY id_pesan ".$order
 		);
 
@@ -50,9 +63,9 @@ class Model_pemesanan extends CI_Model {
 	/**
 	 * Masukan data ke tabel pemesanan
 	 *
-	 * @param    array  $data Data yang mau dimasukan
+	 * @param    array  $data  Data yang mau dimasukan
 	 *
-	 * @return   int          id_pesan data yang baru di-insert
+	 * @return   int           id_pesan data yang baru di-insert
 	 */
 	public function insert($data)
 	{
