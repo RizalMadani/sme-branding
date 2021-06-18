@@ -101,4 +101,9 @@ class Registrasi extends CI_Controller
 			redirect('login');
 		}
 	}
+
+	public function signup()
+	{
+		redirect('login');
+	}
 }

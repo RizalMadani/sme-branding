@@ -72,7 +72,7 @@
         <?php if ($this->session->foto_user){ ?>
           <img src="<?=$this->session->foto_user; ?>" alt="user" class="rounded-circle img-thumbnail">
         <?php }else{ ?>
-        <img src="<?= base_url(); ?>uploads/foto_user/admin.png" alt="user" class="rounded-circle img-thumbnail">
+        <img src="<?= base_url(); ?>uploads/foto_user/freelancer.png" alt="user" class="rounded-circle img-thumbnail">
       <?php } ?>
       </a>
       <div class="dropdown-menu dropdown-menu-right profile-dropdown ">

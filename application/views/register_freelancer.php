@@ -67,7 +67,7 @@
 
     <div class="form-group row">
       <div class="col-12 text-center">
-        <a href="<?= base_url(); ?>Auth/loghin" class="text-muted"><i class="mdi mdi-account-circle"></i> Sudah punya akun ?</a>
+        <a href="login" class="text-muted"><i class="mdi mdi-account-circle"></i> Sudah punya akun ?</a>
       </div>
     </div>
 
