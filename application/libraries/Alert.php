@@ -13,22 +13,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Alert {
 
 	/**
-	 * Penyimpanan semua alert yang ingin ditampilkan
+	 * Object CI
 	 * 
-	 * @var array
+	 * @var object
 	 */
-	private $_alerts;
+	private $_CI;
 
 	public function __construct()
 	{
-		// Key array adalah nama class alert
-		// dari Urora theme dashboard
-		$this->_alerts = array(
-			'primary' => array(),
-			'danger'  => array(),
-			'warning' => array(),
-			'info'    => array(),
-		);
+		$this->_CI =& get_instance();
+
+		if (empty($_SESSION['alerts'])) {
+			// Key array adalah nama class alert
+			// dari Urora theme dashboard
+			$_SESSION['alerts'] = array(
+				'primary' => array(),
+				'danger'  => array(),
+				'warning' => array(),
+				'info'    => array(),
+			);
+		}
 	}
 
 	/**
@@ -81,9 +85,11 @@ class Alert {
 	 */
 	public function tampilkan()
 	{
-		$CI =& get_instance();
+		$alerts = $_SESSION['alerts'];
 
-		return $CI->load->view('alert/alert', array('alerts' => $this->_alerts));
+		unset($_SESSION['alerts']);
+
+		return $this->_CI->load->view('alert/alert', array('alerts' => $alerts));
 	}
 
 	/**
@@ -95,11 +101,15 @@ class Alert {
 	 */
 	public function getAlerts(string $jenis = ''):array
 	{
-		if (! empty($jenis)) {
-			return $this->_alerts[$jenis];
+		if ( ! isset($_SESSION['alerts'])) {
+			return [];
 		}
 
-		return $this->_alerts;
+		if (! empty($jenis)) {
+			return $_SESSION['alerts'][$jenis];
+		}
+
+		return $_SESSION['alerts'];
 	}
 
 	/**
@@ -115,11 +125,11 @@ class Alert {
 	public function hasAlert(string $jenis = ''):bool
 	{
 		if ( ! empty($jenis)) {
-			return ! empty($this->_alerts[$jenis]);
+			return ! empty($_SESSION['alerts'][$jenis]);
 		}
 
 		// Jika tidak ada argumen $jenis yang diberikan maka cek semua jenis
-		foreach ($this->_alerts as $alert) {
+		foreach ($_SESSION['alerts'] as $alert) {
 			if ( ! empty($alerts)) {
 				return TRUE;
 			}
@@ -137,10 +147,10 @@ class Alert {
 	private function _setAlert($pesan, string $jenis)
 	{
 		if (is_array($pesan)) {
-			$this->_alerts[$jenis] += $pesan;
+			$_SESSION['alerts'][$jenis] += $pesan;
 		}
 		else {
-			array_push($this->_alerts[$jenis], $pesan);
+			array_push($_SESSION['alerts'][$jenis], $pesan);
 		}
 	}
 }
