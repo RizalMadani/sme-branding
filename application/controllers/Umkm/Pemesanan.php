@@ -54,6 +54,14 @@ class Pemesanan extends MY_Controller
 		$this->load->view('umkm/form_redesign', $data);
 	}
 
+	/**
+	 * Lihat Pesanan
+	 *
+	 * Tampilkan halaman untuk melihat semua
+	 * atau satu pesanan berdasarkan $idPesan
+	 *
+	 * @param    mixed    $idPesan    id_pesan yang mau ditampilkan, kosongkan untuk menampilkan semua
+	 */
 	public function lihatPesanan($idPesan = '')
 	{
 		$idUmkm = $this->session->id_umkm;
@@ -83,11 +91,46 @@ class Pemesanan extends MY_Controller
 
 		$data = array(
 			'pesanan' => $pesanan,
-			'gambar'  => $gambar
+			'gambar'  => $gambar,
+			'script'  => 'edit-keterangan-pesanan'
 		);
 
+		$this->session->id_pesan_dilihat = $idPesan;
 		$this->load->view('umkm/lihat_pesanan', $data);
 	}
+
+	/**
+	 * Edit Keterangan Pesanan
+	 *
+	 * Edit ketereangan pesanan berdasrkan $idPesan
+	 *
+	 * @param    mixed   $idPesan    id_pesan pesanan yang mau diedit
+	 */
+	public function editKeteranganPesanan($idPesan)
+	{
+		if ($idPesan !== $this->session->id_pesan_dilihat) {
+			show_error('An Error Was Encountered', 500);
+		}
+
+		// TODO: buat function untuk cek apakah pesanan bisa diedit
+
+		$data = array(
+			'keterangan_order' => $this->input->post('keterangan-pesanan')
+		);
+
+		$update   = $this->db->update('pemesanan', $data, 'id_pesan = '.$this->db->escape($idPesan));
+
+		if ( ! $update) {
+			$this->alert->alertDanger('Gagal mengedit keterangan pesanan. Bisa diulangi kembali untuk mengedit keterangan pesanan');
+		}
+		else{
+			$this->alert->alertSuccess('Berhasil memperbarui keterangan pesanan');
+		}
+
+		redirect('umkm/lihat-pesanan/'.$idPesan);
+	}
+
+	//--------------------------------------
 
 	/**
 	 * Cek Pesanan
