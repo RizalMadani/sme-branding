@@ -16,6 +16,8 @@
 
       <div class="container-fluid">
 
+        <?php $this->alert->tampilkan(); ?>
+
         <div class="row align-items-stretch mt-4">
           <div class="col-lg-6 mb-4">
             <div class="card h-100">
@@ -60,7 +62,9 @@
                 <?php endif; ?>
               </div>
 
-              <?php if($pesanan->status !== 'revisi' && $pesanan->status !== 'approval'): ?>
+              <?php $status = $pesanan->status; ?>
+
+              <?php if($status !== 'revisi' && $status !== 'approval'): ?>
               <div class="card-footer">
                 <a class="btn btn-secondary border-secondary float-right" href="<?= base_url(); ?>umkm/edit-pesanan/<?= $pesanan->id_pesan; ?>">Edit Keterangan Produk</a>
               </div>
@@ -88,9 +92,9 @@
 
                 <strong class="d-block">Status</strong>
                 <p>
-                <?= ucfirst($pesanan->status); ?>
+                <?= ucfirst($status); ?>
                 </p>
-                
+
                 <strong class="d-block">Pengelola</strong>
                 <p>
                 <?php if ($pesanan->nama_pengelola): ?>
@@ -110,17 +114,27 @@
                 </p>
 
                 <strong class="d-block">Keterangan Pesanan</strong>
-                <p>
-                <?php
-                  $ket = $pesanan->keterangan_order;
-                  echo empty($ket) ? '<i class="text-muted">Tidak Ada Keterangan</i>' : $ket;
-                ?>
-                </p>
+                <div id="keterangan-pesanan" class="p-relative">
+                  <p id="p-ket">
+                  <?php if (empty($pesanan->keterangan_order)): ?>
+                    <i class="text-muted">Tidak Ada Keterangan</i>
+                  <?php else: ?>
+                    <?= $pesanan->keterangan_order; ?>
+                  <?php endif; ?>
+                  </p>
 
+                  <?php if($status !== 'revisi' && $status !== 'approval'): ?>
+                  <form action="<?= base_url(); ?>umkm/edit-keterangan-pesanan/<?= $pesanan->id_pesan; ?>" method="post" id="form-edit" class="d-none m-0">
+                    <textarea id="field-edit" name="keterangan-pesanan" class="w-100" rows="4"><?= $pesanan->keterangan_order; ?></textarea>
+                  </form>
+                  <?php endif; ?>
+                </div>
             </div>
-            <?php if($pesanan->status !== 'revisi' && $pesanan->status !== 'approval'): ?>
-            <div class="card-footer">
-              <a class="btn btn-secondary border-secondary float-right" href="<?= base_url(); ?>umkm/edit-pesanan/<?= $pesanan->id_pesan; ?>">Edit Keterangan Pesanan</a>
+
+            <?php if($status !== 'revisi' && $status !== 'approval'): ?>
+            <div class="card-footer d-flex justify-content-end">
+              <button id="tbl-edit-ket-pesanan" class="btn btn-secondary border-secondary mr-2">Edit Keterangan Pesanan</a>
+              <button form="form-edit" id="tbl-kirim" type="submit" class="btn btn-primary d-none">Kirim</button>
             </div>
             <?php endif; ?>
           </div>

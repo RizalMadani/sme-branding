@@ -9,19 +9,21 @@
 	}
 }
 
-
-
 .errors {
     color: $danger;
 }
 
-.overflow-auto {
-    overflow: auto;
-}
+// .overflow-auto {
+//     overflow: auto;
+// }
 
 .crop-center {
     object-fit: cover;
     object-position: center;
+}
+
+.h-0 {
+	height: 0;
 }
 
 .list-order {

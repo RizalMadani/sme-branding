@@ -40,6 +40,10 @@
     <script src="<?= base_url(); ?>assets/admin/plugins/morris/morris.min.js"></script>
     <script src="<?= base_url(); ?>assets/admin/pages/dashborad.js"></script>
 
+    <?php if (! empty($script)): ?>
+      <script src="<?= base_url(); ?>assets/admin/js/<?= $script; ?>.js"></script>
+    <?php endif; ?>
+
     <!-- App js -->
     <script src="<?= base_url(); ?>assets/admin/js/app.js"></script>
 

@@ -3653,13 +3653,13 @@ body.fixed-left .side-menu.left {
   color: #ef4f4c;
 }
 
-.overflow-auto {
-  overflow: auto;
-}
-
 .crop-center {
   object-fit: cover;
   object-position: center;
+}
+
+.h-0 {
+  height: 0;
 }
 
 .list-order {
