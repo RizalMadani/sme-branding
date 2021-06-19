@@ -48,6 +48,9 @@ class Dasbor extends MY_Controller {
 
 	private function _tampilDasborFreelancer()
 	{
+		$data = array(
+			'id_user' => $this->session->id_user,
+		);
 		return $this->load->view('freelancer/dasbor');
 	}
 
