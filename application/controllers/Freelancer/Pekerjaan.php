@@ -1,28 +1,27 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Pekerjaan extends MY_Controller
-{
-	public function index($type)
-	{
-		switch ($type) {
-			case 'ongoing':
-				$this->_pekerjaanOnGoing();
-				break;
+class Pekerjaan extends MY_Controller{
 
-			case 'history':
-				$this->_pekerjaanHistory();
-				break;
-			}
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('Model_user');
+		$this->load->model('Model_pemesanan');
+	}
+	public function onGoing()
+	{
+		echo "hhh";
 	}
 
-	public function _pekerjaanOnGoing()
+	public function history()
 	{
-		echo "on goinggg";
-	}
-
-	public function _pekerjaanHistory()
-	{
-		echo "history";
+		$id_user = $this->session->id_user;
+		$data = array(
+			'user' => $this->Model_user->getUser($id_user),
+			'riwayatlunas' => $this->Model_pemesanan->getDataRiwayatFreelancerLunas($id_user),
+			'riwayatblmlunas' => $this->Model_pemesanan->getDataRiwayatFreelancerBelumLunas($id_user)
+		);
+		$this->load->view('freelancer/riwayatpekerjaan',$data);
 	}
 }

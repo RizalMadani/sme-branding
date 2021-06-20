@@ -56,4 +56,31 @@ class Model_user extends CI_Model {
 	{
 		return $this->db->query("SELECT (id_user+1) as iduser FROM user ORDER BY id_user DESC")->row();
 	}
+
+	public function getFreelancer($id)
+	{
+		return $this->db->query("SELECT * FROM freelancer_data WHERE id_user ='$id'")->row();
+	}
+
+	public function updateUser($data,$id){
+	 $this->db->where('id_user',$id);
+	 $o = $this->db->update('user',$data);
+	 return $o;
+	}
+
+	public function updateFree($data,$id){
+	 $this->db->where('id_user',$id);
+	 $o = $this->db->update('freelancer_data',$data);
+	 return $o;
+	}
+
+	public function getDataPengelola($id)
+	{
+		return $this->db->query("SELECT * FROM user WHERE level='pengelola' AND id_user!='$id'")->result();
+	}
+
+	public function insert_freelancer($data)
+	{
+		return $this->db->insert('freelancer_data',$data);
+	}
 }

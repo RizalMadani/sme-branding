@@ -15,7 +15,7 @@ class Model_pemesanan extends CI_Model {
 		$id_pesan = $this->db->escape($id_pesan);
 
 		$query =  $this->db->query("SELECT pemesanan.*, l.*, pr.*, u.*, p.nama AS nama_pengelola, f.nama AS nama_freelancer
-			FROM pemesanan 
+			FROM pemesanan
 			LEFT JOIN user AS p ON(p.id_user = pemesanan.id_pengelola)
 			LEFT JOIN user AS f ON(f.id_user = pemesanan.id_freelancer)
 			JOIN layanan AS l USING(id_layanan)
@@ -37,7 +37,7 @@ class Model_pemesanan extends CI_Model {
 	public function getAllPemesanan($order = 'DESC')
 	{
 		$query = $this->db->query("SELECT pemesanan.*, l.*, pr.*, u.*, p.nama AS pengelola, f.nama AS freelancer
-			FROM pemesanan 
+			FROM pemesanan
 			LEFT JOIN user AS p ON(p.id_user = pemesanan.id_pengelola)
 			LEFT JOIN user AS f ON(f.id_user = pemesanan.id_freelancer)
 			JOIN layanan AS l USING(id_layanan)
@@ -73,4 +73,17 @@ class Model_pemesanan extends CI_Model {
 
 		return $this->db->insert_id();
 	}
+
+	public function getDataRiwayatFreelancerLunas($id)
+	{
+		return $this->db->query("SELECT * FROM pemesanan JOIN hasil_pemesanan USING(id_pesan) JOIN gaji ON(gaji.id_user = pemesanan.id_freelancer) WHERE id_freelancer='$id' AND gaji.status = 'lunas'")->result();
+	}
+
+	public function getDataRiwayatFreelancerBelumLunas($id)
+	{
+		return $this->db->query("SELECT * FROM pemesanan JOIN hasil_pemesanan USING(id_pesan) JOIN gaji ON(gaji.id_user = pemesanan.id_freelancer) WHERE id_freelancer='$id' AND gaji.status = 'pending'")->result();
+	}
 }
+
+
+?>

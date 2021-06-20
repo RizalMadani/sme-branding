@@ -29,4 +29,9 @@ class Model_portofolio extends CI_Model {
 	 return $o;
 	}
 
+	public function HapusPortofolio($id){
+		$this->db->where('id_portofolio',$id);
+    return $this->db->delete('portofolio');
+	}
+
 }
