@@ -20,7 +20,7 @@
         <li class="menu-title">Menu Freelancer</li>
 
         <li>
-          <a href="index.html" class="waves-effect">
+          <a href="<?=base_url()?>Dasbor" class="waves-effect">
             <i class="mdi mdi-view-dashboard"></i>
             <span> Dashboard
               <span class="badge badge-pill badge-primary float-right">7</span>
@@ -29,7 +29,7 @@
         </li>
 
         <li>
-          <a href="index.html" class="waves-effect">
+          <a href="<?=base_url()?>freelancer/Portofolio" class="waves-effect">
             <i class="mdi mdi-file-document"></i>
             <span> Portofolio
             </span>
@@ -46,10 +46,10 @@
           </a>
           <ul class="list-unstyled">
             <li>
-              <a href="tables-basic.html">Pekerjaan On Going</a>
+              <a href="<?=base_url()?>Pekerjaan/ongoing">Pekerjaan On Going</a>
             </li>
             <li>
-              <a href="tables-datatable.html">Riwayat Pekerjaan</a>
+              <a href="<?=base_url()?>Pekerjaan/history">Riwayat Pekerjaan</a>
             </li>
           </ul>
         </li>
