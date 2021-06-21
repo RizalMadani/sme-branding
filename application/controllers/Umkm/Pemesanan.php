@@ -99,6 +99,40 @@ class Pemesanan extends MY_Controller
 		$this->load->view('umkm/lihat_pesanan', $data);
 	}
 
+	public function editPesanan($idPesan)
+	{
+		// if ($this->input->method() === 'post') {
+			
+		// }
+
+		show_error('Under maintenance', 500);
+
+		$pesanan = $this->Model_pemesanan->getPemesanan($idPesan);
+
+		if (is_null($pesanan) || ! $this->_isOwned($pesanan)) {
+			$this->alert->alertDanger('Pesanan tidak diketahui');
+
+			redirect('umkm/lihat-pesanan');
+		}
+		else if ($this->_isEditable($pesanan)) {
+			$this->alert->alertDanger('Pesanan tidak bisa diedit. Status pesanan: '.$pesanan->status);
+
+			redirect('umkm/lihat-pesanan');
+		}
+
+		// Proses ambil file-file gambar produk (foto, logo, kemasan)
+		$this->load->model('Model_produk');
+		$gambar = $this->Model_produk->getFile($pesanan->id_produk);
+
+
+		$data = array(
+			'pesanan' => $pesanan,
+			'gambar'  => $gambar
+		);
+
+		$this->load->view('umkm/lihat_pesanan', $data);
+	}
+
 	/**
 	 * Edit Keterangan Pesanan
 	 *
@@ -108,11 +142,11 @@ class Pemesanan extends MY_Controller
 	 */
 	public function editKeteranganPesanan($idPesan)
 	{
-		if ($idPesan !== $this->session->id_pesan_dilihat) {
+		// Cek jika pesanan yang akan diedit sesuai dan memang bisa diedit
+		if ( ! ($this->_hasBeenSeen($idPesan) && $this->_isEditable($idPesan))) {
 			show_error('An Error Was Encountered', 500);
 		}
 
-		// TODO: buat function untuk cek apakah pesanan bisa diedit
 
 		$data = array(
 			'keterangan_order' => $this->input->post('keterangan-pesanan')
@@ -281,4 +315,70 @@ class Pemesanan extends MY_Controller
 
 		return $data;
 	}
+
+	/**
+	 * Has Pesanan been seen?
+	 * 
+	 * Cek apakah pesanan yang akan diedit
+	 * merupakan pesanan yang dilihat sebelumnya
+	 * di halaman lihat_pesanan
+	 * 
+	 * @param    string|int    $idPesan    idPesan pesanan yang ingin dicek
+	 * 
+	 * @return   boolean
+	 */
+	private function _hasBeenSeen($idPesan)
+	{
+		if ($idPesan !== $this->session->id_pesan_dilihat) {
+			return show_error('An Error Was Encountered', 500);
+		}
+
+		return TRUE;
+	}
+
+	/**
+	 * Is Pesanan editable?
+	 * 
+	 * Cek apakah pesanan bisa diedit
+	 * 
+	 * @param    string|object    $data    id_pesan atau data pemesanan yang mau dicek
+	 * 
+	 * @return   boolean
+	 */
+	private function _isEditable($data)
+	{
+		if (is_object($data)) {
+			if ($data->status == 'revisi' || $data->status == 'approval') {
+				return FALSE;
+			}
+
+			return TRUE;
+		}
+
+		return $this->Model_pemesanan->isEditable($data);
+	}
+
+	/**
+	 * Is Pesanan Owned by This Umkm?
+	 * 
+	 * Cek apakah pesanan dimiliki oleh Umkm
+	 * 
+	 * @param    string|object    $data    id_pesan atau data pesanan yang mau dicek
+	 * 
+	 * @return   boolean
+	 */
+	// private function _isOwned($data)
+	// {
+	// 	$idUmkm = $this->session->id_umkm;
+
+	// 	if (is_object($data)) {
+	// 		if ($data->id_umkm != $idUmkm) {
+	// 			return FALSE;
+	// 		}
+
+	// 		return TRUE;
+	// 	}
+
+	// 	return $this->Model_pemesanan->cekKepemilikanUmkm($idUmkm, $data);
+	// }
 }
