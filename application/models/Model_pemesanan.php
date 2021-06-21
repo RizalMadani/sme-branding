@@ -12,19 +12,21 @@ class Model_pemesanan extends CI_Model {
 	 */
 	public function getPemesanan($id_pesan)
 	{
+		// Sanitasi id_pesan untuk keamanan/security
 		$id_pesan = $this->db->escape($id_pesan);
 
-		$query =  $this->db->query("SELECT pemesanan.*, l.*, pr.*, u.*, p.nama AS nama_pengelola, f.nama AS nama_freelancer
+		$query = "SELECT pemesanan.*, l.*, pr.*, u.*, p.nama AS nama_pengelola, f.nama AS nama_freelancer
 			FROM pemesanan 
 			LEFT JOIN user AS p ON(p.id_user = pemesanan.id_pengelola)
 			LEFT JOIN user AS f ON(f.id_user = pemesanan.id_freelancer)
 			JOIN layanan AS l USING(id_layanan)
 			JOIN produk AS pr USING(id_produk)
 			JOIN umkm AS u USING(id_umkm)
-			WHERE id_pesan = ".$id_pesan
-		);
+			WHERE id_pesan = ".$id_pesan;
 
-		return $query->row();
+		$result =  $this->db->query($query);
+
+		return $result->row();
 	}
 
 	/**
@@ -36,17 +38,18 @@ class Model_pemesanan extends CI_Model {
 	 */
 	public function getAllPemesanan($order = 'DESC')
 	{
-		$query = $this->db->query("SELECT pemesanan.*, l.*, pr.*, u.*, p.nama AS pengelola, f.nama AS freelancer
+		$query = "SELECT pemesanan.*, l.*, pr.*, u.*, p.nama AS pengelola, f.nama AS freelancer
 			FROM pemesanan 
 			LEFT JOIN user AS p ON(p.id_user = pemesanan.id_pengelola)
 			LEFT JOIN user AS f ON(f.id_user = pemesanan.id_freelancer)
 			JOIN layanan AS l USING(id_layanan)
 			JOIN produk AS pr USING(id_produk)
 			JOIN umkm AS u USING(id_umkm)
-			ORDER BY id_pesan ".$order
-		);
+			ORDER BY id_pesan ".$order;
 
-		return $query->result();
+		$result = $this->db->query($query);
+
+		return $result->result();
 	}
 
 	public function getPemesananUmkm($id_umkm = '')
@@ -58,6 +61,35 @@ class Model_pemesanan extends CI_Model {
 		$result = $this->db->get('pemesanan');
 
 		return $result->result();
+	}
+
+	/**
+	 * Apakah Pesanan bisa diedit?
+	 * 
+	 * Method untuk cek apakah pesanan memiliki status sebelum 'revisi'
+	 * 
+	 * @param    string|int  $id_pesan    id_pesan dr pesanan yang mau dicek
+	 * 
+	 * @return   boolean     true|false
+	 */
+	public function isEditable($id_pesan)
+	{
+		// Sanitasi id_pesan untuk keamanan/security
+		$id_pesan = $this->db->escape($id_pesan);
+
+		$query = "SELECT id_pesan 
+			FROM pemesanan
+			WHERE id_pesan = $id_pesan
+			AND status NOT IN('revisi', 'approval')";
+
+		$result = $this->db->query($query)->row();
+
+		// Jika hasil tidak ditemukan maka return FALSE
+		if (empty($result)) {
+			return FALSE;
+		}
+
+		return TRUE;
 	}
 
 	/**
