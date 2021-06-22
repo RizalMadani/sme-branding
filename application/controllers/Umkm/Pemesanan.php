@@ -105,8 +105,6 @@ class Pemesanan extends MY_Controller
 			
 		// }
 
-		show_error('Under maintenance', 500);
-
 		$pesanan = $this->Model_pemesanan->getPemesanan($idPesan);
 
 		if (is_null($pesanan) || ! $this->_isOwned($pesanan)) {
@@ -114,7 +112,7 @@ class Pemesanan extends MY_Controller
 
 			redirect('umkm/lihat-pesanan');
 		}
-		else if ($this->_isEditable($pesanan)) {
+		else if ( ! $this->_isEditable($pesanan)) {
 			$this->alert->alertDanger('Pesanan tidak bisa diedit. Status pesanan: '.$pesanan->status);
 
 			redirect('umkm/lihat-pesanan');
@@ -127,10 +125,11 @@ class Pemesanan extends MY_Controller
 
 		$data = array(
 			'pesanan' => $pesanan,
-			'gambar'  => $gambar
+			'gambar'  => $gambar,
+			'script'  => 'edit-pesanan'
 		);
 
-		$this->load->view('umkm/lihat_pesanan', $data);
+		$this->load->view('umkm/edit_pesanan', $data);
 	}
 
 	/**
@@ -367,18 +366,18 @@ class Pemesanan extends MY_Controller
 	 * 
 	 * @return   boolean
 	 */
-	// private function _isOwned($data)
-	// {
-	// 	$idUmkm = $this->session->id_umkm;
+	private function _isOwned($data)
+	{
+		$idUmkm = $this->session->id_umkm;
 
-	// 	if (is_object($data)) {
-	// 		if ($data->id_umkm != $idUmkm) {
-	// 			return FALSE;
-	// 		}
+		if (is_object($data)) {
+			if ($data->id_umkm != $idUmkm) {
+				return FALSE;
+			}
 
-	// 		return TRUE;
-	// 	}
+			return TRUE;
+		}
 
-	// 	return $this->Model_pemesanan->cekKepemilikanUmkm($idUmkm, $data);
-	// }
+		return $this->Model_pemesanan->cekKepemilikanUmkm($idUmkm, $data);
+	}
 }
