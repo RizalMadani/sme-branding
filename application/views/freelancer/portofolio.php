@@ -197,7 +197,7 @@
                        </div>
                        <div class="modal-footer justify-content-between">
                          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Tutup</button>
-                         <a href="<?=base_url()?>Portofolio/HapusPortofolio/<?=$p->id_portofolio?>" class="btn btn-danger">Hapus</a>
+                         <a href="<?=base_url()?>freelancer/Portofolio/HapusPortofolio/<?=$p->id_portofolio?>" class="btn btn-danger">Hapus</a>
                        </div>
                      </div>
                      <!-- /.modal-content -->

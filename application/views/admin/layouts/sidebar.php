@@ -20,7 +20,7 @@
         <li class="menu-title">Menu Admin</li>
 
         <li>
-          <a href="index.html" class="waves-effect">
+          <a href="<?=base_url()?>Dasbor" class="waves-effect">
             <i class="mdi mdi-view-dashboard"></i>
             <span> Dashboard
               <span class="badge badge-pill badge-primary float-right">7</span>
@@ -38,13 +38,13 @@
           </a>
           <ul class="list-unstyled">
             <li>
-              <a href="ui-badge.html">Kelola Admin</a>
+              <a href="<?=base_url()?>Pengelola/User/kelolaPengelola">Kelola Admin</a>
             </li>
             <li>
-              <a href="ui-alertify.html">Kelola Freelancer</a>
+              <a href="<?=base_url()?>Pengelola/User/kelolaFreelancer">Kelola Freelancer</a>
             </li>
             <li>
-              <a href="ui-buttons.html">Kelola UMKM</a>
+              <a href="<?=base_url()?>Pengelola/User/kelolaUMKM">Kelola UMKM</a>
             </li>
           </ul>
         </li>

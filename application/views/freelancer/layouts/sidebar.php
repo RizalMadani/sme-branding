@@ -46,10 +46,10 @@
           </a>
           <ul class="list-unstyled">
             <li>
-              <a href="<?=base_url()?>Pekerjaan/ongoing">Pekerjaan On Going</a>
+              <a href="<?=base_url()?>freelancer/Pekerjaan/OnGoing">Pekerjaan On Going</a>
             </li>
             <li>
-              <a href="<?=base_url()?>Pekerjaan/history">Riwayat Pekerjaan</a>
+              <a href="<?=base_url()?>freelancer/Pekerjaan/History">Riwayat Pekerjaan</a>
             </li>
           </ul>
         </li>

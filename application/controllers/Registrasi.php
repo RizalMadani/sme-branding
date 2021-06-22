@@ -55,10 +55,9 @@ class Registrasi extends CI_Controller
 
 		$cek = $this->Model_user->insert_user($data);
 
-		$this->load->model('Model_umkm');
-		$cekumkm = $this->Model_umkm->insert_umkm($dataumkm);
-
 		if ($cek) {
+			$this->load->model('Model_umkm');
+			$cekumkm = $this->Model_umkm->insert_umkm($dataumkm);
 			if ($cekumkm) {
 				redirect('login');
 			}
@@ -81,10 +80,13 @@ class Registrasi extends CI_Controller
 		$username    = $this->input->post('username');
 		$password    = $this->input->post('password');
 		$email       = $this->input->post('email');
-		$keahlian    = $this->input->post('keahlian');
+		$keahlian    = $this->input->post('kategori');
+		$keterangan    = $this->input->post('keterangank');
 		$noWA        = $this->input->post('no_wa');
 
+		$idk = $this->Model_user->findIDUser();
 		$data = array (
+			'id_user' => $idk->iduser,
 			'username' => $username,
 			'password' => password_hash($password, PASSWORD_DEFAULT),
 			'nama'     => $namalengkap,
@@ -95,10 +97,19 @@ class Registrasi extends CI_Controller
 			'status'   => '1'
 		);
 
+		$dataf = array(
+				'id_user' => $idk->iduser,
+				'kategori_keahlian' => $keahlian,
+				'keterangan' => $keterangan
+		);
+
 		$cek = $this->Model_user->insert_user($data);
 
 		if ($cek) {
-			redirect('login');
+			$input = $this->Model_user->insert_freelancer($dataf);
+			if ($input) {
+				redirect('login');
+			}
 		}
 	}
 

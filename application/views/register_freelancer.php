@@ -30,15 +30,20 @@
       <label for="email" class="bmd-label-floating">Email</label>
       <input type="email" name="email" class="form-control" id="email" required>
     </div>
-<!--
+
     <div class="form-group bmd-form-group">
       <label for="keahlian" class="bmd-label-floating">Keahlian</label>
       <select class="form-control" name="kategori">
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
+        <option value="Designer Graphic">Designer Graphic</option>
+        <option value="Analisis Bisnis">Analisis Bisnis</option>
+        <option value="Lainnya">Lainnya</option>
       </select>
-    </div> -->
+    </div>
+
+    <div class="form-group bmd-form-group">
+      <label for="username" class="bmd-label-floating">Keterangan Keahlian</label>
+      <textarea name="keterangank" class="form-control" rows="8" cols="80"></textarea>
+    </div>
 
     <div class="form-group bmd-form-group">
       <label for="no_wa" class="bmd-label-floating">No.Whatsapp</label>

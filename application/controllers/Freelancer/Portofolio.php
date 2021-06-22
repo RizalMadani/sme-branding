@@ -47,7 +47,7 @@ class Portofolio extends MY_Controller
 					);
   			}
   			$cek = $this->Model_portofolio->insertPortofolio($data);
-				redirect('Portofolio');
+				redirect('freelancer/Portofolio');
 	}
 
 	public function EditPortofolio()
@@ -81,6 +81,7 @@ class Portofolio extends MY_Controller
 
 	public function HapusPortofolio($id)
 	{
-		// code...
+		$hapus = $this->Model_portofolio->HapusPortofolio($id);
+		redirect('freelancer/Portofolio');
 	}
 }
