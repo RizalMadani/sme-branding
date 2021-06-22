@@ -1,0 +1,7 @@
+## ignore semua file
+*
+## kecuali file ini
+!admin.png
+!freelancer.png
+!umkm.png
+!.gitignore
