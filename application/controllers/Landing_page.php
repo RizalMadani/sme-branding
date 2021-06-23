@@ -8,7 +8,14 @@ class Landing_page extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('landingpage/index');
+		$this->load->model('Model_testimoni');
+
+		$data = array(
+			'testimoni' => $this->Model_testimoni->getTestimoniForLandingPage(5),
+		);
+
+		// dd($data);
+		$this->load->view('landingpage/index' ,$data);
 	}
 
 	public function layanan()

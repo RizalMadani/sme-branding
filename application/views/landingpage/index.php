@@ -120,7 +120,7 @@
     </div>
   </section> <!-- end promo section -->
 
-
+  <?php if ( ! empty($testimoni)): ?>
   <!-- Testimonials -->
   <section class="section-wrap bg-color">
     <div class="container">
@@ -133,83 +133,31 @@
 
           <div id="owl-testimonials" class="owl-carousel owl-theme owl-carousel--arrows-outside">
 
+            <?php foreach($testimoni as $t): ?>
             <div class="testimonial clearfix">
-              <img src="assets/lp/img/testimonials/1.png" alt="" class="testimonial__img">
               <div class="testimonial__info">
-                <span class="testimonial__author">Joeby Ragpa</span>
-                <span class="testimonial__company">DeoThemes</span>
+                <span class="testimonial__author"><?= $t->nama; ?></span>
+                <span class="testimonial__company"><?= $t->nama_umkm; ?></span>
               </div>
               <div class="testimonial__body">
-                <p class="testimonial__text">“I have witnessed and admired the work for years. I highly recommend this work for anyone seeking to increase.”</p>
+                <p class="testimonial__text"><?= $t->detail_testimoni; ?></p>
                 <div class="testimonial__rating">
                   <i class="ui-star"></i>
                   <i class="ui-star"></i>
                   <i class="ui-star"></i>
                   <i class="ui-star"></i>
-                  <i class="ui-star"></i>
+                  <i class="ui-star-empty"></i>
                 </div>
               </div>
             </div>
-
-            <div class="testimonial clearfix">
-              <img src="assets/lp/img/testimonials/2.png" alt="" class="testimonial__img">
-              <div class="testimonial__info">
-                <span class="testimonial__author">Alexander Samokhin</span>
-                <span class="testimonial__company">DeoThemes</span>
-              </div>
-              <div class="testimonial__body">
-                <p class="testimonial__text">“Every detail has been taken care these team are realy amazing and talented! I will work only to help your sales goals.”</p>
-                <div class="testimonial__rating">
-                  <i class="ui-star"></i>
-                  <i class="ui-star"></i>
-                  <i class="ui-star"></i>
-                  <i class="ui-star"></i>
-                  <i class="ui-star"></i>
-                </div>
-              </div>
-            </div>
-
-            <div class="testimonial clearfix">
-              <img src="assets/lp/img/testimonials/1.png" alt="" class="testimonial__img">
-              <div class="testimonial__info">
-                <span class="testimonial__author">Joeby Ragpa</span>
-                <span class="testimonial__company">DeoThemes</span>
-              </div>
-              <div class="testimonial__body">
-                <p class="testimonial__text">“I have witnessed and admired the work for years. I highly recommend this work for anyone seeking to increase.”</p>
-                <div class="testimonial__rating">
-                  <i class="ui-star"></i>
-                  <i class="ui-star"></i>
-                  <i class="ui-star"></i>
-                  <i class="ui-star"></i>
-                  <i class="ui-star"></i>
-                </div>
-              </div>
-            </div>
-
-            <div class="testimonial clearfix">
-              <img src="assets/lp/img/testimonials/2.png" alt="" class="testimonial__img">
-              <div class="testimonial__info">
-                <span class="testimonial__author">Alexander Samokhin</span>
-                <span class="testimonial__company">DeoThemes</span>
-              </div>
-              <div class="testimonial__body">
-                <p class="testimonial__text">“Every detail has been taken care these team are realy amazing and talented! I will work only to help your sales goals.”</p>
-                <div class="testimonial__rating">
-                  <i class="ui-star"></i>
-                  <i class="ui-star"></i>
-                  <i class="ui-star"></i>
-                  <i class="ui-star"></i>
-                  <i class="ui-star"></i>
-                </div>
-              </div>
-            </div>
-
+            <?php endforeach; ?>
+            
           </div> <!-- end owl-carousel -->
         </div>
       </div>
     </div>
   </section> <!-- end testimonials -->
+  <?php endif; ?>
 
   <!-- From Blog -->
   <section class="section-wrap">
