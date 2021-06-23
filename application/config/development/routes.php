@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+$route['isidata/testimoni/(:num)'] = 'Seeder/isiTestimoni/$1';
 $route['isidata/(:any)/(:num)'] = 'Seeder/index/$1/$2';
 
 $route['muntah'] = function() {

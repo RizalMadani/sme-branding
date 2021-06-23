@@ -55,8 +55,6 @@ class Seeder extends CI_controller {
 	public function __construct()
 	{
 		parent::__construct();
-
-		$this->_faker = \Faker\Factory::create('id_ID');
 		$this->_userLevel = ['pengelola', 'umkm', 'freelancer'];
 		$this->_kategori_keahlian = ['desainer', 'branding', 'bisnis'];
 	}
@@ -75,6 +73,8 @@ class Seeder extends CI_controller {
 		if (ENVIRONMENT !== 'development') {
 			exit();
 		}
+
+		$this->_faker = \Faker\Factory::create('id_ID');
 
 		// Cetak tag <pre> jika url dibuka lewat browser
 		if ( ! is_cli()) {
@@ -105,6 +105,46 @@ class Seeder extends CI_controller {
 		if ( ! is_cli()) {
 			echo "</pre>";
 		}
+	}
+
+	public function isiTestimoni($jumlah = 1)
+	{
+		$this->db->select('id_umkm');
+		$umkms = $this->db->get('umkm')->result();
+
+		if (empty($umkms)) {
+			return 'Tabel umkm kosong. Testimoni membutuhkan data UMKM';
+		}
+		
+		$fakeTestimoni = array(
+			'Bagus desainnya 😍. ',
+			'Terima kasih bantuan redesign-nya 🙏. ',
+			'Terima kasih SME Branding. ',
+			'Semoga setelah dipakai bisa menambah jumlah pembeli. ',
+			'🙏🙏 ',
+			'Suka desainnya...',
+			'Kemasan sangat menarik dan cocok. ',
+			'👍 ',
+			'Keren pokoknya...'
+		);
+
+		for ($i=0; $i < $jumlah; $i++) { 
+			$randKey   = array_rand($umkms);
+			$testimoni = array();
+
+			for ($j=0; $j < random_int(1, 4); $j++) { 
+				$testimoni[$j] = $fakeTestimoni[array_rand($fakeTestimoni)];
+			}
+
+			$data = [
+				'id_umkm'          => $umkms[$randKey]->id_umkm,
+				'detail_testimoni' => implode($testimoni)
+			];
+
+			$this->db->insert('testimoni', $data);
+		}
+
+		echo '> Selesai mengisi tabel testimoni sebanyak '.$jumlah.' baris data.'.PHP_EOL;
 	}
 
 	/**
