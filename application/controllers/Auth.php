@@ -49,7 +49,7 @@ class Auth extends CI_Controller {
 			return $this->load->view('login', ['title' => 'Login']);
 		}
 
-		$userLevel = user_level($user->level);
+		$userLevel = $user->level;
 		$this->session->id_user = $user->id_user;
 		$this->session->level   = $userLevel;
 

@@ -13,8 +13,9 @@ class MY_Controller extends CI_controller {
 		 * Contoh: localhost/admin/dasbor -> $urlLevel = admin
 		 */
 		$urlLevel = $this->uri->segment(1);
+		$urlLevel = strtolower($urlLevel);
 
-		if ($urlLevel !== 'admin' && $urlLevel !== 'freelancer' && $urlLevel !== 'umkm') {
+		if ($urlLevel !== 'pengelola' && $urlLevel !== 'freelancer' && $urlLevel !== 'umkm') {
 			return;
 		}
 
@@ -86,7 +87,7 @@ class MY_Controller extends CI_controller {
 		$this->load->model('Model_user');
 
 		$user  = $this->Model_user->getUser($this->session->id_user);
-		$level = user_level($user->level);
+		$level = $user->level;
 
 		// Cek jika user level tidak sama dengan $urlLevel
 		if (strcmp($level, $urlLevel) !== 0) {

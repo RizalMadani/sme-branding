@@ -16,7 +16,7 @@ class Dasbor extends MY_Controller {
 		}
 
 		switch ($level) {
-			case 'admin':
+			case 'pengelola':
 				$this->_tampilDasborAdmin();
 				break;
 
@@ -27,6 +27,8 @@ class Dasbor extends MY_Controller {
 			case 'umkm':
 				$this->_tampilDasborUmkm();
 				break;
+			default:
+				show_error('Invalid Login', 403);
 		}
 	}
 
