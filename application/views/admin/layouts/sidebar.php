@@ -73,12 +73,15 @@
               <i class="mdi mdi-chevron-right"></i>
             </span>
           </a>
-          <ul class="list-unstyled">
+          <ul class="list-unstyled"> 
             <li>
-              <a href="tables-basic.html">Order Pending</a>
+              <a href="<?= base_url(); ?>Pengelola/Pemesanan/lihatPemesanan">Semua Order</a>
             </li>
             <li>
-              <a href="tables-datatable.html">Order On Going</a>
+              <a href="<?= base_url(); ?>Pengelola/Pemesanan/lihatPemesanan/pending">Order Pending</a>
+            </li>
+            <li>
+              <a href="<?= base_url(); ?>Pengelola/Pemesanan/lihatPemesanan/on-going">Order On Going</a>
             </li>
           </ul>
         </li>

@@ -69,8 +69,8 @@
       <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
         aria-expanded="false">
         <!-- Sementara pakai ini, ganti dg yg di bawah jika sdh ada db -->
-        <?php if ($user->foto){ ?>
-          <img src="<?= base_url()?>uploads/foto_user/<?=$user->foto?>" alt="user" class="rounded-circle img-thumbnail">
+        <?php if ($this->session->foto_user){ ?>
+          <img src="<?= base_url(); ?>uploads/foto_user/<?=$this->session->foto_user; ?>" alt="foto profil" class="rounded-circle img-thumbnail">
         <?php }else{ ?>
         <img src="<?= base_url(); ?>uploads/foto_user/admin.png" alt="user" class="rounded-circle img-thumbnail">
       <?php } ?>
