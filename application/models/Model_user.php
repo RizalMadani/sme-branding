@@ -47,6 +47,16 @@ class Model_user extends CI_Model {
 		return $this->db->query("SELECT level FROM user WHERE id_user = ".$id_user)->row();
 	}
 
+	public function getAllPengelola()
+	{
+		return $this->db->query("SELECT id_user, nama FROM user WHERE level = 'pengelola'")->result();
+	}
+
+	public function getAllFreelancer()
+	{
+		return $this->db->query("SELECT id_user, nama FROM user WHERE level = 'freelancer'")->result();
+	}
+
 	public function insert_user($data)
 	{
 		return $this->db->insert('user',$data);

@@ -36,14 +36,33 @@ class Pemesanan extends MY_Controller
 		$this->load->model('Model_produk');
 		$gambar = $this->Model_produk->getFile($pemesanan->id_produk);
 
+		$this->load->model('Model_user');
+		$pengelola = $this->Model_user->getAllPengelola();
+		$freelancer = $this->Model_user->getAllFreelancer();
+
 		$data = array(
 			'pemesanan' => $pemesanan,
-			'gambar'    => $gambar
+			'gambar'    => $gambar,
+			'pengelola' => $pengelola,
+			'freelancer' => $freelancer,
+			'list_status'     => ['pending', 'mencari freelancer', 'on going', 'review', 'revisi', 'approval']
 		);
 
 		// dd($data);
 
 		$this->load->view('admin/lihatpemesanan', $data);
+	}
+
+	public function editPengelola($idPesan)
+	{
+		$data = array(
+			'id_pengelola' => $this->input->post('pengelola')
+		);
+
+		$this->db->where('id_pesan', $idPesan);
+		$this->db->update('pemesanan', $data);
+
+		redirect('Pengelola/Pemesanan/lihatDetail/'.$idPesan);
 	}
 
 

@@ -77,7 +77,7 @@
               <div class="card-body">
 
                 <strong class="d-block">Pengelola</strong>
-                <p>
+                <p role="button" data-toggle="modal" data-target="#edit-pengelola" style="cursor: pointer;">
                 <?php if ($pemesanan->nama_pengelola): ?>
                   <?= $pemesanan->nama_pengelola; ?>
                 <?php else: ?>
@@ -86,8 +86,8 @@
                 </p>
 
                 <strong class="d-block">Freelancer</strong>
-                <p>
-                <?php if ($pemesanan->nama_pengelola): ?>
+                <p role="button" data-toggle="modal" data-target="#edit-freelancer" style="cursor: pointer;">
+                <?php if ($pemesanan->nama_freelancer): ?>
                   <?= $pemesanan->nama_freelancer; ?>
                 <?php else: ?>
                   <i class="text-muted"> Belum ditentukan </i>
@@ -112,8 +112,8 @@
                 </p>
 
                 <strong class="d-block">Status</strong>
-                <p>
-                <?= ucfirst($status); ?>
+                <p role="button" data-toggle="modal" data-target="#edit-status" style="cursor: pointer;">
+                  <?= ucfirst($status); ?>
                 </p>
 
                 <strong class="d-block">Jumlah</strong>
@@ -153,6 +153,75 @@
             </div>
           </div>
         </div> <!-- end row -->
+
+        <div class="modal fade" id="edit-pengelola" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmModal" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                <p>Pilih Pengelola</p>
+                <?= form_open(base_url().'Pengelola/editPengelola/'.$pemesanan->id_pesan, ['id' => 'form-edit-pengelola']); ?>
+                  <?php foreach($pengelola as $p): ?>
+                    <label for="p-<?= $p->id_user; ?>" class="d-block m-2">
+                      <input type="radio" name="pengelola" id="p-<?= $p->id_user; ?>" value="<?= $p->id_user; ?>">
+                      <?= $p->nama; ?>
+                    </label>
+                  <?php endforeach; ?>
+                <?= form_close(); ?>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary mr-2" data-dismiss="modal">Batalkan</button>
+                <button type="submit" form="form-edit-pengelola" class="btn btn-primary">Edit</button>
+                <!-- <a class="btn btn-raised btn-danger ml-2" href="<?= base_url(); ?>umkm/hapus-pesanan/<?= $pesanan->id_pesan; ?>">Iya, Saya yakin</a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="edit-freelancer" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmModal" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                  <p>Pilih Freelancer</p>
+                  <?= form_open(base_url().'Pengelola/editFreelancer/'.$pemesanan->id_pesan, ['id' => 'form-edit-pengelola']); ?>
+                    <?php foreach($freelancer as $f): ?>
+                      <label for="f-<?= $f->id_user; ?>" class="d-block m-2">
+                        <input type="radio" name="freelancer" id="f-<?= $f->id_user; ?>" value="<?= $f->id_user; ?>">
+                        <?= $f->nama; ?>
+                      </label>
+                    <?php endforeach; ?>
+                  <?= form_close(); ?>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary mr-2" data-dismiss="modal">Batalkan</button>
+                <button type="submit" form="form-edit-pengelola" class="btn btn-primary">Edit</button>
+                <!-- <a class="btn btn-raised btn-danger ml-2" href="<?= base_url(); ?>umkm/hapus-pesanan/<?= $pesanan->id_pesan; ?>">Iya, Saya yakin</a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="edit-status" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmModal" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                  <p>Pilih Status</p>
+                  <?= form_open(base_url().'Pengelola/editStatus/'.$pemesanan->id_pesan, ['id' => 'form-edit-pengelola']); ?>
+                    <?php foreach($list_status as $s): ?>
+                      <label for="s-<?= $s ?>" class="d-block m-2">
+                        <input type="radio" name="status" id="s-<?= $s ?>" value="<?= $s ?>">
+                        <?= $s ?>
+                      </label>
+                    <?php endforeach; ?>
+                  <?= form_close(); ?>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary mr-2" data-dismiss="modal">Batalkan</button>
+                <button type="submit" form="form-edit-pengelola" class="btn btn-primary">Edit</button>
+                <!-- <a class="btn btn-raised btn-danger ml-2" href="<?= base_url(); ?>umkm/hapus-pesanan/<?= $pesanan->id_pesan; ?>">Iya, Saya yakin</a> -->
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div><!-- container -->
 
