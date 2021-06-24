@@ -81,7 +81,7 @@
                 <?php if ($pemesanan->nama_pengelola): ?>
                   <?= $pemesanan->nama_pengelola; ?>
                 <?php else: ?>
-                  <i class="text-muted"> Belum ditentukan </i>
+                  <i class="text-muted"> Belum ditentukan (Klik untuk edit)</i>
                 <?php endif; ?>
                 </p>
 
@@ -90,7 +90,7 @@
                 <?php if ($pemesanan->nama_freelancer): ?>
                   <?= $pemesanan->nama_freelancer; ?>
                 <?php else: ?>
-                  <i class="text-muted"> Belum ditentukan </i>
+                  <i class="text-muted"> Belum ditentukan (Klik untuk edit)</i>
                 <?php endif; ?>
                 </p>
 
