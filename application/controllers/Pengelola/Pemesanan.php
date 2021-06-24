@@ -25,9 +25,25 @@ class Pemesanan extends MY_Controller
 			'status' => $status
 		);
 
+		$this->load->view('admin/kelolapemesanan', $data);
+	}
+
+	public function lihatDetail($idPesan)
+	{
+		$pemesanan = $this->Model_pemesanan->getPemesanan($idPesan);
+
+		// Proses ambil file-file gambar produk (foto, logo, kemasan)
+		$this->load->model('Model_produk');
+		$gambar = $this->Model_produk->getFile($pemesanan->id_produk);
+
+		$data = array(
+			'pemesanan' => $pemesanan,
+			'gambar'    => $gambar
+		);
+
 		// dd($data);
 
-		$this->load->view('admin/kelolapemesanan', $data);
+		$this->load->view('admin/lihatpemesanan', $data);
 	}
 
 

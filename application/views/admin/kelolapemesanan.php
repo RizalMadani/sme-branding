@@ -124,7 +124,8 @@
                           <!-- <i class="mdi mdi-information mr-2 text-white-400"></i> -->
                           Detail
                         </a>
-                          <a class="btn btn-secondary border-secondary" href="<?= base_url(); ?>Pengelola/Pemesanan/editPemesanan/<?= $p->id_pesan ?>">
+                          <!-- <a class="btn btn-secondary border-secondary" href="<?= base_url(); ?>Pengelola/Pemesanan/editPemesanan/<?= $p->id_pesan ?>"> -->
+                        <a class="btn btn-primary mr-2" href="#">
                           <!-- <i class="mdi mdi-grease-pencil mr-2 text-white-400"></i> -->
                           Edit
                         </a>
