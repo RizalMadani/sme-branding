@@ -53,13 +53,30 @@ class Pemesanan extends MY_Controller
 		$this->load->view('admin/lihatpemesanan', $data);
 	}
 
-	public function editPengelola($idPesan)
+	public function editSingkat($idPesan, $edit)
 	{
-		$data = array(
-			'id_pengelola' => $this->input->post('pengelola')
-		);
-
 		$this->db->where('id_pesan', $idPesan);
+
+		if ($edit === 'pengelola') {
+			$data = array(
+				'id_pengelola' => $this->input->post('pengelola'),
+				'status'       => 'mencari freelancer'
+			);
+		}
+		elseif ($edit === 'freelancer') {
+			$data = array(
+				'id_freelancer' => $this->input->post('freelancer'),
+				'status'       => 'on going'
+			);
+		}
+		elseif ($edit === 'status') {
+			$data = array(
+				'status' => $this->input->post('status')
+			);
+		}
+
+		// dd($data);
+
 		$this->db->update('pemesanan', $data);
 
 		redirect('Pengelola/Pemesanan/lihatDetail/'.$idPesan);

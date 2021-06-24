@@ -182,7 +182,7 @@
             <div class="modal-content">
               <div class="modal-body">
                   <p>Pilih Freelancer</p>
-                  <?= form_open(base_url().'Pengelola/editFreelancer/'.$pemesanan->id_pesan, ['id' => 'form-edit-pengelola']); ?>
+                  <?= form_open(base_url().'Pengelola/editFreelancer/'.$pemesanan->id_pesan, ['id' => 'form-edit-freelancer']); ?>
                     <?php foreach($freelancer as $f): ?>
                       <label for="f-<?= $f->id_user; ?>" class="d-block m-2">
                         <input type="radio" name="freelancer" id="f-<?= $f->id_user; ?>" value="<?= $f->id_user; ?>">
@@ -193,7 +193,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary mr-2" data-dismiss="modal">Batalkan</button>
-                <button type="submit" form="form-edit-pengelola" class="btn btn-primary">Edit</button>
+                <button type="submit" form="form-edit-freelancer" class="btn btn-primary">Edit</button>
                 <!-- <a class="btn btn-raised btn-danger ml-2" href="<?= base_url(); ?>umkm/hapus-pesanan/<?= $pesanan->id_pesan; ?>">Iya, Saya yakin</a> -->
               </div>
             </div>
@@ -205,7 +205,7 @@
             <div class="modal-content">
               <div class="modal-body">
                   <p>Pilih Status</p>
-                  <?= form_open(base_url().'Pengelola/editStatus/'.$pemesanan->id_pesan, ['id' => 'form-edit-pengelola']); ?>
+                  <?= form_open(base_url().'Pengelola/editStatus/'.$pemesanan->id_pesan, ['id' => 'form-edit-status']); ?>
                     <?php foreach($list_status as $s): ?>
                       <label for="s-<?= $s ?>" class="d-block m-2">
                         <input type="radio" name="status" id="s-<?= $s ?>" value="<?= $s ?>">
@@ -216,7 +216,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary mr-2" data-dismiss="modal">Batalkan</button>
-                <button type="submit" form="form-edit-pengelola" class="btn btn-primary">Edit</button>
+                <button type="submit" form="form-edit-status" class="btn btn-primary">Edit</button>
                 <!-- <a class="btn btn-raised btn-danger ml-2" href="<?= base_url(); ?>umkm/hapus-pesanan/<?= $pesanan->id_pesan; ?>">Iya, Saya yakin</a> -->
               </div>
             </div>

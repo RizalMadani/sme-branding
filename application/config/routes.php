@@ -73,7 +73,9 @@ $route['regFreelancer'] = 'Registrasi/regFreelancer';
 // ------------------------
 // base_url()admin/dasbor = Controller Dasbor/Method index()
 $route['pengelola/dasbor'] = 'Dasbor/index';
-$route['Pengelola/editPengelola/(:num)'] = 'Pengelola/Pemesanan/editPengelola/$1';
+$route['Pengelola/editPengelola/(:num)'] = 'Pengelola/Pemesanan/editSingkat/$1/pengelola';
+$route['Pengelola/editFreelancer/(:num)'] = 'Pengelola/Pemesanan/editSingkat/$1/freelancer';
+$route['Pengelola/editStatus/(:num)'] = 'Pengelola/Pemesanan/editSingkat/$1/status';
 
 
 // ------------------------
