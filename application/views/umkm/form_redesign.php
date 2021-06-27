@@ -74,7 +74,7 @@
                           </label>
                       </div>
                     </span>
-                    
+
                     <?php endforeach; ?>
                   </div>
 
@@ -84,9 +84,10 @@
                   </div>
 
                   <div class="position-relative" id="preview-wrapper-foto" style="display: none; height: 0;">
-                    <img src="" alt="foto yang akan di upload" class="img-thumbnail" id="preview-foto" style="max-height: 120px">
+                    <div id="preview-foto" class="d-inline">
+                    </div>
                     <button type="button" class="btn btn-secondary position-absolute ml-2" id="hapus-foto" aria-label="Close" style="background-color: #fff">
-                      Hapus Foto
+                      Hapus Semua foto
                     </button>
                   </div>
 
@@ -98,9 +99,10 @@
                   </div>
 
                   <div class="position-relative" id="preview-wrapper-logo" style="display: none; height: 0;">
-                    <img src="" alt="foto yang akan di upload" class="img-thumbnail" id="preview-logo" style="max-height: 120px">
+                    <div id="preview-logo" class="d-inline">
+                    </div>
                     <button type="button" class="btn btn-secondary position-absolute ml-2" id="hapus-logo" aria-label="Close" style="background-color: #fff">
-                      Hapus Logo
+                      Hapus Semua logo
                     </button>
                   </div>
 
@@ -110,11 +112,12 @@
                     <small class="text-muted">Tambahkan gambar kemasan yang sekarang dimiliki</small>
                   </div>
 
-                  <div id="preview-wrapper-kemasan" style="display: none; height: 0;">
-                    <button type="button" class="btn btn-secondary ml-2" id="hapus-kemasan" aria-label="Close" style="background-color: #fff">
+                  <div class="position-relative" id="preview-wrapper-kemasan" style="display: none; height: 0;">
+                    <div id="preview-kemasan" class="d-inline">
+                    </div>
+                    <button type="button" class="btn btn-secondary position-absolute ml-2" id="hapus-kemasan" aria-label="Close" style="background-color: #fff">
                       Hapus Semua Kemasan
                     </button>
-                    <div id="preview-kemasan"></div>
                   </div>
 
                   <!-- TODO: tanyakan ini atau buat otomatis -->

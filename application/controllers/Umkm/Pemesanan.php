@@ -47,7 +47,8 @@ class Pemesanan extends MY_Controller
 		}
 
 		$data = array(
-			'layanan' => $this->_layanan
+			'layanan' => $this->_layanan,
+			'script'  => 'preview-gambar'
 		);
 
 		// TODO: tanya alur pemesanan, kolom jumlah,
@@ -131,11 +132,8 @@ class Pemesanan extends MY_Controller
 		$data = array(
 			'pesanan' => $pesanan,
 			'gambar'  => $gambar,
-			'script'  => 'edit-pesanan'
+			'script'  => 'preview-gambar'
 		);
-
-		
-		// dd($data);
 
 		$this->load->view('umkm/edit_pesanan', $data);
 	}
