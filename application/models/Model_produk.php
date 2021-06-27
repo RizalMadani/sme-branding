@@ -53,6 +53,15 @@ class Model_produk extends CI_Model {
 		return $data;
 	}
 
+	public function getProdukUmkm($id_umkm)
+	{
+		$id_produk = $this->db->escape($id_umkm);
+
+		$result = $this->db->query("SELECT * FROM produk WHERE id_umkm = $id_umkm")->result();
+
+		return $result;
+	}
+
 	/**
 	 * Masukan data ke tabel produk
 	 * 
