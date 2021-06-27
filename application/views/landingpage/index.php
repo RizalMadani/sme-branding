@@ -30,8 +30,8 @@
       <div class="row">
         <div class="col-lg-5 offset-lg-1">
           <div class="hero__text-holder">
-            <h1 class="hero__title hero__title--boxed">Marketing That Generate Results.</h1>
-            <p class="hero__subtitle">Focus on engaging, reusable content that decrease the cost per leads while helps you to increase profits margin.</p>
+            <h1 class="hero__title hero__title--boxed">SME Branding</h1>
+            <p class="hero__subtitle">SME Branding adalah Layanan untuk memfasilitasi para UMKM untuk mengembangkan bidang branding, packaging, bisnis dan lain-lain yang sedang berjalan saat ini.</p>
           </div>
         </div>
       </div>
@@ -40,8 +40,8 @@
         <div class="col-lg-10">
           <!-- Optin Form -->
           <div class="row justify-content-between align-items-center optin py-4">
-            <h3 class="col-md-8 col-sm-12 optin__title m-0">Daftar sekarang atau lihat layanan dari kami terlebih dahulu</h3>
-            <div class="col-md-4 col-sm-12">
+            <h3 class="col-md-9 col-sm-12 optin__title m-0">Daftar sekarang atau lihat layanan dari kami terlebih dahulu</h3>
+            <div class="col-md-3 col-sm-12">
               <a href="#layanan">
                 <button class="btn btn--md btn--color btn--button">Lihat Layanan</button>
               </a>
@@ -109,9 +109,9 @@
     <div class="container">
       <div class="row justify-content-end">
         <div class="col-lg-6">
-          <h2 class="promo-section__title promo-section__title--boxed">// Header untuk para freelancer</h2>
-          <p class="promo-section__text lead">As you may already know, there are an infinite number of things you can test on your site to help you increase sales. From layout to copy to design, there are limitless combinations of changes that may improve your visitor-to-sale conversion rate. But what's "enough" when you're just starting out? What elements should you focus on testing before rolling out your traffic campaign?</p>
-          <a href="#" class="btn btn--lg btn--color btn--icon">
+          <h2 class="promo-section__title promo-section__title--boxed">Freelancer</h2>
+          <p class="promo-section__text lead">Halo! Buat kamu para freelancer atau yang ke bingung mencari pekerjaan. Nah kami dari SMEsPedia menyediakan layanan SME Branding untuk para UMKM yang nanti nya akan di kerjakan oleh para freelancer yang bergabung di SMEsPedia. Jadi tunggu apalagi yukk buruan daftar...</p>
+          <a href="regFreelancer" class="btn btn--lg btn--color btn--icon">
             <span>Daftar</span>
             <i class="ui-arrow-right"></i>
           </a>
@@ -171,9 +171,7 @@
         <div class="col-lg-4">
           <div class="entry box-shadow hover-up">
             <div class="entry__img-holder card__img-holder">
-              <a href="single-post.html">
-                <img src="assets/lp/img/blog/post_1.jpg" class="entry__img" alt="">
-              </a>
+              <img src="assets/lp/img/hasil_desain/hasil_desain 1.jpeg" class="entry__img" alt="Contoh desain rebranding">
             </div>
           </div>
         </div>
@@ -181,9 +179,7 @@
         <div class="col-lg-4">
           <div class="entry box-shadow hover-up">
             <div class="entry__img-holder card__img-holder">
-              <a href="single-post.html">
-                <img src="assets/lp/img/blog/post_2.jpg" class="entry__img" alt="">
-              </a>
+              <img src="assets/lp/img/hasil_desain/hasil_desain 6.jpg" class="entry__img" alt="Contoh desain rebranding">
             </div>
           </div>
         </div>
@@ -191,9 +187,7 @@
         <div class="col-lg-4">
           <div class="entry box-shadow hover-up">
             <div class="entry__img-holder card__img-holder">
-              <a href="single-post.html">
-                <img src="assets/lp/img/blog/post_3.jpg" class="entry__img" alt="">
-              </a>
+              <img src="assets/lp/img/hasil_desain/hasil_desain 2.jpeg" class="entry__img" alt="Contoh desain rebranding">
             </div>
           </div>
         </div>
@@ -201,9 +195,7 @@
         <div class="col-lg-4">
           <div class="entry box-shadow hover-up">
             <div class="entry__img-holder card__img-holder">
-              <a href="single-post.html">
-                <img src="assets/lp/img/blog/post_1.jpg" class="entry__img" alt="">
-              </a>
+              <img src="assets/lp/img/hasil_desain/hasil_desain 5.jpg" class="entry__img" alt="Contoh desain rebranding">
             </div>
           </div>
         </div>
@@ -211,9 +203,7 @@
         <div class="col-lg-4">
           <div class="entry box-shadow hover-up">
             <div class="entry__img-holder card__img-holder">
-              <a href="single-post.html">
-                <img src="assets/lp/img/blog/post_2.jpg" class="entry__img" alt="">
-              </a>
+              <img src="assets/lp/img/hasil_desain/hasil_desain 4.png" class="entry__img" alt="Contoh desain rebranding">
             </div>
           </div>
         </div>
@@ -221,9 +211,7 @@
         <div class="col-lg-4">
           <div class="entry box-shadow hover-up">
             <div class="entry__img-holder card__img-holder">
-              <a href="single-post.html">
-                <img src="assets/lp/img/blog/post_3.jpg" class="entry__img" alt="">
-              </a>
+              <img src="assets/lp/img/hasil_desain/hasil_desain 8.jpg" class="entry__img" alt="Contoh desain rebranding">
             </div>
           </div>
         </div>
