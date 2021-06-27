@@ -16,7 +16,7 @@ class Model_user extends CI_Model {
 	 */
 	public function getUser($id_user)
 	{
-		$user  = $this->db->query("SELECT * FROM USER WHERE id_user = ".$this->db->escape($id_user))->row();
+		$user  = $this->db->query("SELECT * FROM user WHERE id_user = ".$this->db->escape($id_user))->row();
 
 		unset($user->password);
 
