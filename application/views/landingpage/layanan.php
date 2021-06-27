@@ -80,20 +80,20 @@
             <p class="feature__text">Admin yang ramah dan responsive akan melayani Anda.</p>
           </div>
         </div>
-        <div class="col-lg-4">
+        <!-- <div class="col-lg-4">
           <div class="feature text-center">
             <svg class="feature__icon"><use xlink:href="assets/lp/img/icons/orion-svg-sprite.svg#pay-1"></use></svg>
             <h4 class="feature__title">100% Money Back Guarantee</h4>
             <p class="feature__text">We also provide tangible results and measurable long-term value business.</p>
           </div>
-        </div>
-        <div class="col-lg-4">
+        </div> -->
+        <!-- <div class="col-lg-4">
           <div class="feature text-center">
             <svg class="feature__icon"><use xlink:href="assets/lp/img/icons/orion-svg-sprite.svg#handshake-1"></use></svg>
             <h4 class="feature__title">Customer Loyalty</h4>
             <p class="feature__text">We also provide tangible results and measurable long-term value business.</p>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section> <!-- end service boxes -->
@@ -105,7 +105,7 @@
       <h3 class="call-to-action__title">
         Mulai di sini dan dari sekarang
       </h3>
-      <a href="#" class="btn btn--lg btn--color">
+      <a href="regUmkm" class="btn btn--lg btn--color">
         <span>Pesan Layanan</span>
       </a>
     </div>

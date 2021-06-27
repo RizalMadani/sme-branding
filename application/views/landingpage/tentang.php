@@ -90,11 +90,11 @@
       <h2 class="call-to-action__title">
         Mari bergabung dengan SME Branding
       </h2>
-      <a href="#" class="btn btn--lg btn--color m-2">
+      <a href="regUmkm" class="btn btn--lg btn--color m-2">
         <span>Daftar UMKM</span>
       </a>
 
-      <a href="#" class="btn btn--lg btn--color m-2">
+      <a href="regFreelancer" class="btn btn--lg btn--color m-2">
         <span>Daftar Freelance</span>
       </a>
     </div>
