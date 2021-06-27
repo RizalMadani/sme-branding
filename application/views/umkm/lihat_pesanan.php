@@ -26,7 +26,7 @@
           </div>
           <div class="col-md-4">
             <div class="py-3">
-              <a href="" class="d-block btn btn-success btn-raised">
+            <a href="https://api.whatsapp.com/send?phone=6281548646248&text=Hai,%20Admin%0A%0ASaya%20dari%20UMKM%20<?= $this->session->nama_umkm ?>.%20Saya%20mau%20bertanya%20tentang%20pesanan%20saya,%20<?= $pesanan->nama_produk ?>" target="blank" class="d-block btn btn-success btn-raised" noopener noreferer>
                 <i class="mdi mdi-whatsapp"></i>
                 Chat Pengelola
               </a>
@@ -35,7 +35,7 @@
           <div class="clearfix"></div>
         </div>
 
-        <div class="row align-items-stretch mt-4">
+        <div class="row align-items-stretch">
           <div class="col-lg-6 mb-4">
             <div class="card h-100">
               <div class="card-body">

@@ -47,7 +47,7 @@
 
                     <div class="col-md-4 text-center">
                       <div>
-                        <a href="" class="d-block btn btn-success btn-raised">
+                        <a href="https://api.whatsapp.com/send?phone=6281548646248&text=Hai,%20Admin%0A%0ASaya%20dari%20UMKM%20<?= $this->session->nama_umkm; ?>%20telah%20memesan%20layanan%20baru.%20Mohon%20bantuannya" target="blank" class="d-block btn btn-success btn-raised" noopener noreferer>
                           <i class="mdi mdi-whatsapp"></i>
                           Chat Pengelola
                         </a>
