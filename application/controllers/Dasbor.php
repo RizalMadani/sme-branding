@@ -81,7 +81,7 @@ class Dasbor extends MY_Controller {
 
 		$data = array(
 			'produk'  => $this->Model_produk->getProdukUmkm($idUmkm),
-			'pesanan' => $this->Model_pemesanan->getPemesananUmkm($idUmkm),
+			'pesanan' => $this->Model_pemesanan->getPemesananUmkm($idUmkm, 5),
 		);
 
 		$this->load->helper('text');

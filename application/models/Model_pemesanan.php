@@ -74,8 +74,12 @@ class Model_pemesanan extends CI_Model {
 		return $result->result();
 	}
 
-	public function getPemesananUmkm($id_umkm = '')
+	public function getPemesananUmkm($id_umkm = '', $limit = '')
 	{
+		if ( ! empty($limit)) {
+			$this->db->limit($limit);
+		}
+
 		$this->db->join('layanan', 'id_layanan');
 		$this->db->join('produk', 'id_produk');
 		$this->db->where('id_umkm', $id_umkm);
