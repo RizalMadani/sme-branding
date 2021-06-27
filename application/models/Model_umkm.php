@@ -37,6 +37,15 @@ class Model_umkm extends CI_Model {
 		return $result->id_umkm;
 	}
 
+	public function getNamaUmkm($id_user)
+	{
+		$id_user = $this->db->escape($id_user);
+
+		$result =  $this->db->query("SELECT nama_umkm FROM umkm WHERE id_user = ".$id_user)->row();
+
+		return $result->nama_umkm;
+	}
+
 	public function insert_umkm($data)
 	{
 		return $this->db->insert('umkm',$data);

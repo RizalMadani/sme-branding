@@ -117,6 +117,7 @@ class MY_Controller extends CI_controller {
 			$this->load->model('Model_umkm');
 
 			$this->session->id_umkm = $this->Model_umkm->getIdUmkm($idUser);
+			$this->session->nama_umkm = $this->Model_umkm->getNamaUmkm($idUser);
 		}
 	}
 }
