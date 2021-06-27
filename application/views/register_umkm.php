@@ -55,6 +55,18 @@
       </button>
     </div>
 
+    <div class="form-group bmd-form-group">
+      <label for="username" class="bmd-label-floating">Nama UMKM</label>
+      <input type="text" name="namaumkm" class="form-control" id="namaumkm" required>
+    </div>
+
+    <div class="form-group bmd-form-group">
+      <label for="username" class="bmd-label-floating">Alamat</label>
+      <textarea name="alamat" rows="8" cols="80" class="form-control" required></textarea>
+    </div>
+
+
+
     <div class="form-group text-right row m-t-40">
       <div class="col-12">
         <button class="btn btn-warning btn-raised btn-block waves-effect waves-light" type="submit">Daftar</button>

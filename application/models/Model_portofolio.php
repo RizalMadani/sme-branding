@@ -34,4 +34,26 @@ class Model_portofolio extends CI_Model {
     return $this->db->delete('portofolio');
 	}
 
+	public function insertHasilPemesanan($data)
+	{
+		return $this->db->insert('hasil_pemesanan',$data);
+	}
+
+	public function updateHasilPemesanan($data,$id){
+	 $this->db->where('id_hasil_pemesanan',$id);
+	 $o = $this->db->update('hasil_pemesanan',$data);
+	 return $o;
+	}
+
+	public function updatePemesanan($data,$id){
+	 $this->db->where('id_pesan',$id);
+	 $o = $this->db->update('pemesanan',$data);
+	 return $o;
+	}
+
+	public function getPemesanan()
+	{
+		return $this->db->query("SELECT * FROM pemesanan JOIN produk USING(id_produk) JOIN umkm USING(id_umkm)")->result();
+	}
+
 }

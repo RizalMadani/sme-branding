@@ -16,7 +16,7 @@ class Model_pemesanan extends CI_Model {
 		$id_pesan = $this->db->escape($id_pesan);
 
 		$query = "SELECT pemesanan.*, l.*, pr.*, u.*, p.nama AS nama_pengelola, f.nama AS nama_freelancer
-			FROM pemesanan 
+			FROM pemesanan
 			LEFT JOIN user AS p ON(p.id_user = pemesanan.id_pengelola)
 			LEFT JOIN user AS f ON(f.id_user = pemesanan.id_freelancer)
 			JOIN layanan AS l USING(id_layanan)
@@ -39,7 +39,7 @@ class Model_pemesanan extends CI_Model {
 	public function getAllPemesanan($order = 'DESC')
 	{
 		$query = "SELECT pemesanan.*, l.*, pr.*, u.*, p.nama AS pengelola, f.nama AS freelancer
-			FROM pemesanan 
+			FROM pemesanan
 			LEFT JOIN user AS p ON(p.id_user = pemesanan.id_pengelola)
 			LEFT JOIN user AS f ON(f.id_user = pemesanan.id_freelancer)
 			JOIN layanan AS l USING(id_layanan)
@@ -60,17 +60,17 @@ class Model_pemesanan extends CI_Model {
 			$this->db->where('pemesanan.status', $status);
 		}
 
-		$this->db->select('pemesanan.*, nama_layanan, nama_produk, nama_umkm, p.nama AS pengelola, f.nama AS freelancer');
+		$this->db->select('pemesanan.*, nama_layanan, p.no_wa,nama_produk, nama_umkm, p.nama AS pengelola, f.nama AS freelancer');
 		$this->db->from('pemesanan');
 		$this->db->join('user AS p', 'p.id_user = pemesanan.id_pengelola', 'left');
-		$this->db->join('user AS f', 'p.id_user = pemesanan.id_freelancer', 'left');
+		$this->db->join('user AS f', 'f.id_user = pemesanan.id_freelancer', 'left');
 		$this->db->join('layanan AS l', 'id_layanan');
 		$this->db->join('produk AS pr', 'id_produk');
 		$this->db->join('umkm AS um', 'id_umkm');
 		$this->db->order_by('id_pesan', 'desc');
 
 		$result = $this->db->get();
-		
+
 		return $result->result();
 	}
 
@@ -87,11 +87,11 @@ class Model_pemesanan extends CI_Model {
 
 	/**
 	 * Apakah Pesanan bisa diedit?
-	 * 
+	 *
 	 * Method untuk cek apakah pesanan memiliki status sebelum 'revisi'
-	 * 
+	 *
 	 * @param    string|int  $id_pesan    id_pesan dr pesanan yang mau dicek
-	 * 
+	 *
 	 * @return   boolean     true|false
 	 */
 	public function isEditable($id_pesan)
@@ -99,7 +99,7 @@ class Model_pemesanan extends CI_Model {
 		// Sanitasi id_pesan untuk keamanan/security
 		$id_pesan = $this->db->escape($id_pesan);
 
-		$query = "SELECT id_pesan 
+		$query = "SELECT id_pesan
 			FROM pemesanan
 			WHERE id_pesan = $id_pesan
 			AND status NOT IN('revisi', 'approval')";
@@ -137,4 +137,27 @@ class Model_pemesanan extends CI_Model {
 	{
 		return $this->db->query("SELECT * FROM pemesanan JOIN hasil_pemesanan USING(id_pesan) JOIN gaji ON(gaji.id_user = pemesanan.id_freelancer) WHERE id_freelancer='$id' AND gaji.status = 'pending'")->result();
 	}
+
+	public function delete_pemesanan($id){
+		$this->db->where('id_pesan',$id);
+		return $this->db->delete('pemesanan');
+	}
+
+	public function update_pemesanan($data,$id)
+	{
+	 $this->db->where('id_pesan',$id);
+	 $o = $this->db->update('pemesanan',$data);
+	 return $o;
+	}
+
+	public function getPemesananFreelancer($id)
+	{
+		return $this->db->query("SELECT * FROM pemesanan JOIN layanan USING(id_layanan) JOIN hasil_pemesanan USING(id_pesan) WHERE status ='approval' ")->result();
+	}
+
+	public function getPemesananFreelancerOnGoing($id)
+	{
+		return $this->db->query("SELECT * FROM pemesanan JOIN produk USING(id_produk) JOIN umkm USING(id_umkm) JOIN layanan USING(id_layanan) JOIN hasil_pemesanan USING(id_pesan) WHERE status !='approval' ")->result();
+	}
+
 }

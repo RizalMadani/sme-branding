@@ -23,7 +23,6 @@
           <a href="<?=base_url()?>Dasbor" class="waves-effect">
             <i class="mdi mdi-view-dashboard"></i>
             <span> Dashboard
-              <span class="badge badge-pill badge-primary float-right">7</span>
             </span>
           </a>
         </li>
