@@ -85,6 +85,15 @@ class Model_pemesanan extends CI_Model {
 		return $result->result();
 	}
 
+	public function getIdProduk($id_pesan)
+	{
+		$id_pesan = $this->db->escape($id_pesan);
+
+		$result = $this->db->query("SELECT id_produk FROM pemesanan WHERE id_pesan = $id_pesan")->row();
+
+		return $result->id_produk;
+	}
+
 	/**
 	 * Apakah Pesanan bisa diedit?
 	 *

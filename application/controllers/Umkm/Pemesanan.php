@@ -103,9 +103,12 @@ class Pemesanan extends MY_Controller
 
 	public function editPesanan($idPesan)
 	{
-		// if ($this->input->method() === 'post') {
-			
-		// }
+		if ($this->input->method() === 'post') {
+			// TODO: lakukan pengecekan
+			$this->_editProduk($idPesan);
+
+			redirect('umkm/lihat-pesanan/'.$idPesan);
+		}
 
 		$pesanan = $this->Model_pemesanan->getPemesanan($idPesan);
 
@@ -130,6 +133,9 @@ class Pemesanan extends MY_Controller
 			'gambar'  => $gambar,
 			'script'  => 'edit-pesanan'
 		);
+
+		
+		// dd($data);
 
 		$this->load->view('umkm/edit_pesanan', $data);
 	}
@@ -261,6 +267,61 @@ class Pemesanan extends MY_Controller
 			// TODO: kasih link ke halaman edit
 			$this->alert->alertDanger('Jika ada file yang gagal diunggah Anda masih bisa mengeditnya di halaman edit pesanan');
 		}
+	}
+
+	private function _editProduk($idPesan)
+	{
+		$this->load->model('Model_pemesanan');
+		$this->_idProduk = $this->Model_pemesanan->getIdProduk($idPesan);
+
+		d($this->_idProduk);
+
+		// --------------------------
+		// Proses insert data produk
+		// --------------------------
+		$namaProduk       = $this->input->post('nama-produk');
+		$keteranganProduk = $this->input->post('keterangan-produk');
+
+		$dataProduk = array(
+			'id_umkm'     => $this->session->id_umkm,
+			'nama_produk' => $namaProduk,
+			'keterangan'  => $keteranganProduk
+		);
+
+		$this->load->model('Model_produk');
+		$this->Model_produk->update($this->_idProduk, $dataProduk);
+
+		// --------------------------------
+		// Proses cek dan insert nama file
+		// -------------------------------
+		// TODO: pisah verifikasi dengan uploag file, extend core class CI
+		$dataFotoProduk    = $this->_uploadImg('foto', 'foto_produk');
+		$dataLogoProduk    = $this->_uploadImg('logo', 'logo_produk');
+		$dataKemasanProduk = $this->_uploadImg('foto_kemasan', 'kemasan_produk');
+		// d($this->_idProduk);
+
+		// d($dataFotoProduk);
+		// d($dataLogoProduk);
+		// dd($dataKemasanProduk);
+
+		if ( ! empty($dataFotoProduk)) {
+			$this->db->insert_batch('foto_produk', $dataFotoProduk);
+		}
+
+		if ( ! empty($dataLogoProduk)) {
+			$this->db->insert_batch('logo_produk', $dataLogoProduk);
+		}
+
+		if ( ! empty($dataKemasanProduk)) {
+			$this->db->insert_batch('kemasan_produk', $dataKemasanProduk);
+		}
+
+		$this->alert->alertSuccess('Pesanan berhasil diubah');
+		// Tambah alert jika ada file yang gagal diupload
+		// if ($this->alert->hasAlert('danger')) {
+		// 	// TODO: kasih link ke halaman edit
+		// 	$this->alert->alertDanger('Jika ada file yang gagal diunggah Anda masih bisa mengeditnya di halaman edit pesanan');
+		// }
 	}
 
 	/**

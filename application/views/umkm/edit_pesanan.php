@@ -91,7 +91,7 @@
                   <div class="position-relative" id="preview-wrapper-logo" style="<?= $preview_logo_display; ?>">
                     <div id="preview-logo" class="d-inline">
                     <?php foreach($gambar->logo_produk as $img): ?>
-                      <img src="<?= base_url()."uploads/logo_produk/".$img->logo_produk; ?>" alt="logo produk" class="img-thumbnail m-2 logo" style="max-height: 160px;">
+                      <img src="<?= base_url()."uploads/logo_produk/".$img->logo; ?>" alt="logo produk" class="img-thumbnail m-2 logo" style="max-height: 160px;">
                     <?php endforeach; ?>
                     </div>
                     <button type="button" class="btn btn-secondary position-absolute ml-2" id="hapus-logo" aria-label="Close" style="background-color: #fff">

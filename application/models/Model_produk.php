@@ -75,4 +75,10 @@ class Model_produk extends CI_Model {
 
 		return $this->db->insert_id();
 	}
+
+	public function update($id_produk, $data)
+	{
+		$this->db->where('id_produk', $id_produk);
+		$this->db->update('produk', $data);
+	}
 }
