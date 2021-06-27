@@ -33,16 +33,16 @@
 
               <div class="col-lg-3 col-md-4">
                 <div class="widget widget-address">
-                  <h5 class="widget-title">Company</h5>
+                  <h5 class="widget-title">Kontak</h5>
                   <ul>
-                    <li><address>8910 University Center Lane Suite 620 San Diego, CA 92102</address></li>
+                    <!-- <li><address>8910 University Center Lane Suite 620 San Diego, CA 92102</address></li> -->
                     <li>
-                      <span>Phone: </span>
-                      <a href="tel:+1-800-1554-456-123">+ 1 (800) 155 4561</a>
+                      <span>Telepon: </span>
+                      <a href="tel:+62-822-5640-6910">+62-822-5640-6910</a>
                     </li>
                     <li>
                       <span>Email: </span>
-                      <a href="mailto:hi@margin.com">hi@margin.com</a>
+                      <a href="mailto:umkmppkm@gmail.com">umkmppkm@gmail.com</a>
                     </li>
                   </ul>
                 </div>

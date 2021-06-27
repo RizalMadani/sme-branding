@@ -20,16 +20,16 @@
         <div class="col-lg-8">
           <div class="contact box-shadow-large offset-top-171">
             <ul class="contact__items">
-              <li class="contact__item">
+              <!-- <li class="contact__item">
                 <address>Melbourne's GPO 350 Bourke St. Melbourne VIC 3000, Australia</address>
-              </li>
+              </li> -->
               <li class="contact__item">
-                <span class="contact__item-label">Phone: </span>
-                <a href="tel:+1-800-1554-456-123">+ 1 (800) 155 4561</a>
+                <span clas="contat__item-label">Telepon: </span>
+                <a href="tel:+62-822-5640-6910">+62-822-5640-6910</a>
               </li>
               <li class="contact__item">
                 <span class="contact__item-label">Email: </span>
-                <a href="mailto:themesupport@gmail.com">themesupport@gmail.com</a>
+                <a href="mailto:umkmppkm@gmail.com">umkmppkm@gmail.com</a>
               </li>
             </ul>
           </div>
