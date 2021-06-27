@@ -23,7 +23,7 @@
           <a href="<?=base_url()?>Dasbor" class="waves-effect">
             <i class="mdi mdi-view-dashboard"></i>
             <span> Dashboard
-              <span class="badge badge-pill badge-primary float-right">7</span>
+              <!-- <span class="badge badge-pill badge-primary float-right">7</span> -->
             </span>
           </a>
         </li>
@@ -50,7 +50,7 @@
         </li>
 
         <li>
-          <a href="index.html" class="waves-effect">
+          <a href="<?=base_url()?>Pengelola/Layanan" class="waves-effect">
             <i class="mdi mdi-animation"></i>
             <span> Kelola Layanan
             </span>
@@ -58,7 +58,7 @@
         </li>
 
         <li>
-          <a href="index.html" class="waves-effect">
+          <a href="<?=base_url()?>Pengelola/Testimoni" class="waves-effect">
             <i class="mdi mdi-wechat"></i>
             <span> Kelola Testimoni
             </span>
@@ -73,7 +73,7 @@
               <i class="mdi mdi-chevron-right"></i>
             </span>
           </a>
-          <ul class="list-unstyled"> 
+          <ul class="list-unstyled">
             <li>
               <a href="<?= base_url(); ?>Pengelola/Pemesanan/lihatPemesanan">Semua Order</a>
             </li>
@@ -96,15 +96,15 @@
           </a>
           <ul class="list-unstyled">
             <li>
-              <a href="icons-material.html">Validasi Order UMKM</a>
+              <a href="<?=base_url()?>Pengelola/Transaksi/validasiOrder">Validasi Order UMKM</a>
             </li>
             <li>
-              <a href="icons-fontawesome.html">Kelola Transaksi Order</a>
+              <a href="<?=base_url()?>Pengelola/Transaksi">Kelola Transaksi Order</a>
             </li>
           </ul>
         </li>
 
-        <li class="has_sub">
+        <!-- <li class="has_sub">
           <a href="javascript:void(0);" class="waves-effect">
             <i class="mdi mdi-library-plus"></i>
             <span> Kelola Gaji </span>
@@ -120,9 +120,9 @@
               <a href="charts-chartist.html">Kelola Gaji Freelancer</a>
             </li>
           </ul>
-        </li>
+        </li> -->
 
-        <li class="menu-title">Riwayat Pemesanan</li>
+        <!-- <li class="menu-title">Riwayat Pemesanan</li>
 
         <li>
           <a href="index.html" class="waves-effect">
@@ -138,7 +138,7 @@
             <span> Riwayat Transaksi
             </span>
           </a>
-        </li>
+        </li> -->
 
       </ul>
     </div>

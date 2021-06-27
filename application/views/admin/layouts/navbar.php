@@ -12,11 +12,11 @@
   <ul class="list-inline float-right mb-0 mr-3">
     <!-- language-->
     <li class="list-inline-item dropdown notification-list">
-      <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
+      <!-- <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
         aria-expanded="false">
         <i class="mdi mdi-bell noti-icon"></i>
         <span class="badge badge-success a-animate-blink noti-icon-badge">3</span>
-      </a>
+      </a> -->
       <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg">
         <!-- item-->
         <div class="dropdown-item noti-title">

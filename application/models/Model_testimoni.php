@@ -16,7 +16,7 @@ class Model_testimoni extends CI_Model {
 		$id_testimoni = $this->db->escape($id_testimoni);
 
 		$query = "SELECT testimoni.*, l.*, pr.*, u.*, p.nama AS nama_pengelola, f.nama AS nama_freelancer
-			FROM testimoni 
+			FROM testimoni
 			LEFT JOIN user AS p ON(p.id_user = testimoni.id_pengelola)
 			LEFT JOIN user AS f ON(f.id_user = testimoni.id_freelancer)
 			JOIN layanan AS l USING(id_layanan)
@@ -39,7 +39,7 @@ class Model_testimoni extends CI_Model {
 	public function getAllTestimoni($order = 'DESC')
 	{
 		$query = "SELECT testimoni.*, l.*, pr.*, u.*, p.nama AS pengelola, f.nama AS freelancer
-			FROM testimoni 
+			FROM testimoni
 			LEFT JOIN user AS p ON(p.id_user = testimoni.id_pengelola)
 			LEFT JOIN user AS f ON(f.id_user = testimoni.id_freelancer)
 			JOIN layanan AS l USING(id_layanan)
@@ -87,4 +87,15 @@ class Model_testimoni extends CI_Model {
 
 		return $this->db->insert_id();
 	}
+
+	public function getDataTestimoni()
+	{
+		return $this->db->query("SELECT * FROM testimoni JOIN umkm USING(id_umkm)")->result();
+	}
+
+	public function delete_testimoni($id){
+		$this->db->where('id_testimoni',$id);
+		return $this->db->delete('testimoni');
+	}
+
 }

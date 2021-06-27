@@ -51,6 +51,8 @@ class Registrasi extends CI_Controller
 
 		$dataumkm = array(
 			'id_user' => $idk->iduser,
+			'nama_umkm' => $this->input->post('namaumkm'),
+			'alamat'		=> $this->input->post('alamat')
 		);
 
 		$cek = $this->Model_user->insert_user($data);

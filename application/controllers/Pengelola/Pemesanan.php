@@ -9,6 +9,8 @@ class Pemesanan extends MY_Controller
 		parent::__construct();
 
 		$this->load->model('Model_pemesanan');
+		$this->load->model('Model_layanan');
+		$this->load->model('Model_user');
 	}
 
 	public function lihatPemesanan($status = '')
@@ -22,9 +24,10 @@ class Pemesanan extends MY_Controller
 
 		$data = array(
 			'pemesanan' => $this->Model_pemesanan->getPemesananByStatus($status),
-			'status' => $status
+			'status' => $status,
+			'layanan' => $this->Model_layanan->getLayanan(),
+			'freelancer' => $this->Model_user->getDataFreelancer()
 		);
-
 		$this->load->view('admin/kelolapemesanan', $data);
 	}
 
@@ -96,24 +99,50 @@ class Pemesanan extends MY_Controller
 		{
 			case 'pending':
 				return 'pending';
-			
+
 			case 'mencari-freelancer':
 				return 'mencari freelancer';
-			
+
 			case 'on-going':
 				return 'on going';
-			
+
 			case 'review':
 				return 'review';
 
 			case 'revisi':
 				return 'revisi';
-			
+
 			case 'approval':
 				return 'approval';
-			
+
 			default:
 				return FALSE;
+		}
+	}
+
+	public function hapusPemesanan($id)
+	{
+		$cek = $this->Model_pemesanan->delete_pemesanan($id);
+		redirect('Pengelola/Pemesanan/lihatPemesanan');
+	}
+
+	public function editPemesanan()
+	{
+		$id = $this->input->post('id');
+		$id_user = $this->session->id_user;
+		$data = array(
+			'id_freelancer' => $this->input->post('freelancer'),
+			'tgl_mulai'     => $this->input->post('tglmulai'),
+			'tgl_akhir'			=> $this->input->post('tglakhir'),
+			'jumlah'				=> $this->input->post('jumlah'),
+			'keterangan_order' => $this->input->post('keterangan'),
+			'detail_revisi'	=> $this->input->post('detailrevisi'),
+			'status'				=> $this->input->post('status'),
+			'id_pengelola'	=> $id_user
+		);
+		$cek = $this->Model_pemesanan-> update_pemesanan($data,$id);
+		if ($cek) {
+			redirect('Pengelola/Pemesanan/lihatPemesanan');
 		}
 	}
 }

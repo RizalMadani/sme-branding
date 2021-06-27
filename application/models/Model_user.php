@@ -84,6 +84,12 @@ class Model_user extends CI_Model {
 	 return $o;
 	}
 
+	public function updateUMKM($data,$id){
+	 $this->db->where('id_user',$id);
+	 $o = $this->db->update('umkm',$data);
+	 return $o;
+	}
+
 	public function getDataPengelola($id)
 	{
 		return $this->db->query("SELECT * FROM user WHERE level='pengelola' AND id_user!='$id'")->result();
@@ -92,5 +98,65 @@ class Model_user extends CI_Model {
 	public function insert_freelancer($data)
 	{
 		return $this->db->insert('freelancer_data',$data);
+	}
+
+	public function getDataFreelancer()
+	{
+		return $this->db->query("SELECT * FROM user JOIN freelancer_data USING(id_user) WHERE level='freelancer'")->result();
+	}
+
+	public function getDataUMKM()
+	{
+		return $this->db->query("SELECT * FROM user JOIN umkm USING(id_user) WHERE level='umkm'")->result();
+	}
+
+	public function jumlah_freelancer()
+	{
+		return $this->db->query("SELECT COUNT(id_user) as hasil FROM user WHERE level='freelancer'")->row();
+	}
+
+	public function jumlah_pengelola()
+	{
+		return $this->db->query("SELECT COUNT(id_user) as hasil FROM user WHERE level='pengelola'")->row();
+	}
+
+	public function jumlah_pemesanan_pending()
+	{
+		return $this->db->query("SELECT COUNT(id_pesan) as hasil FROM pemesanan WHERE status ='pending'")->row();
+	}
+
+	public function jumlah_pemesanan_ongoing()
+	{
+		return $this->db->query("SELECT COUNT(id_pesan) as hasil FROM pemesanan WHERE status ='on going'")->row();
+	}
+
+	public function jumlah_pemesanan_selesai()
+	{
+		return $this->db->query("SELECT COUNT(id_pesan) as hasil FROM pemesanan WHERE status ='approval'")->row();
+	}
+
+	public function jumlah_transaksi()
+	{
+		return $this->db->query("SELECT COUNT(id_transaksi) as hasil FROM transaksi")->row();
+	}
+
+	public function jumlahPesananFreelancer($id)
+	{
+		return $this->db->query("SELECT COUNT(id_pesan) as hasil FROM pemesanan WHERE id_freelancer = '$id'")->row();
+	}
+
+	public function jumlahPesananOngoing($id)
+	{
+		return $this->db->query("SELECT COUNT(id_pesan) as hasil FROM pemesanan WHERE id_freelancer = '$id' AND status = 'on going'")->row();
+	}
+
+	public function jumlahPesananReview($id)
+	{
+		return $this->db->query("SELECT COUNT(id_pesan) as hasil FROM pemesanan WHERE id_freelancer = '$id' AND status = 'review'")->row();
+	}
+
+	public function jumlahPesananApproval($id)
+	{
+		return $this->db->query("SELECT COUNT(id_pesan) as hasil FROM pemesanan WHERE id_freelancer = '$id' AND status = 'approval'")->row();
 	}
 }
