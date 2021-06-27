@@ -18,6 +18,23 @@
 
         <?php $this->alert->tampilkan(); ?>
 
+        <div class="row">
+          <div class="col-md-8 col-sm-12">
+            <div class="py-3">
+              <h4 class="font-18 page-title">Rincian Pesanan Saya</h4>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="py-3">
+              <a href="" class="d-block btn btn-success btn-raised">
+                <i class="mdi mdi-whatsapp"></i>
+                Chat Pengelola
+              </a>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+
         <div class="row align-items-stretch mt-4">
           <div class="col-lg-6 mb-4">
             <div class="card h-100">

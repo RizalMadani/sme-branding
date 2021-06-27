@@ -39,8 +39,22 @@
 
               <div class="card mb-4">
                 <div class="card-body">
-                  <h4 class="mt-0 header-title">Tabel Pesanan</h4>
-                  <p class="text-muted font-14">Lihat pesanan layanan yang telah Anda buat.</p>
+                  <div class="row mb-4">
+                    <div class="col-md-8">
+                      <h4 class="mt-0 header-title">Tabel Pesanan</h4>
+                      <p class="text-muted font-14">Lihat pesanan layanan yang telah Anda buat.</p>
+                    </div>
+
+                    <div class="col-md-4 text-center">
+                      <div>
+                        <a href="" class="d-block btn btn-success btn-raised">
+                          <i class="mdi mdi-whatsapp"></i>
+                          Chat Pengelola
+                        </a>
+                      </div>
+                      <i class="text-muted font-14">Chat pengelola mengenai pesanan baru Anda</i>
+                    </div>
+                  </div>
 
                   <table id="datatable" class="table table-striped table-bordered no-wrap w-100">
                     <thead>
@@ -64,10 +78,11 @@
                         <td><?= $pesanan->nama_layanan; ?></td>
                         <td><?= $pesanan->status; ?></td>
                         <td>
-                          <a class="btn btn-raised btn-primary" href="<?= base_url(); ?>umkm/lihat-pesanan/<?= $pesanan->id_pesan; ?>">Lihat Detil</a>
+
+                          <a class="btn btn-raised btn-primary mr-2" href="<?= base_url(); ?>umkm/lihat-pesanan/<?= $pesanan->id_pesan; ?>">Lihat Detil</a>
 
                         <?php if($pesanan->status !== 'revisi' && $pesanan->status !== 'approval'): ?>
-                          <a class="btn btn-secondary border-secondary ml-2" href="<?= base_url(); ?>umkm/edit-pesanan/<?= $pesanan->id_pesan; ?>">Edit</a>
+                          <a class="btn btn-secondary border-secondary" href="<?= base_url(); ?>umkm/edit-pesanan/<?= $pesanan->id_pesan; ?>">Edit</a>
                         <?php endif; ?>
 
                         <?php if($pesanan->status === 'pending' || $pesanan->status === 'mencari freelancer'): ?>
