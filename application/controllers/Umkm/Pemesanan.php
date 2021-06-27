@@ -41,6 +41,8 @@ class Pemesanan extends MY_Controller
 		if ($this->input->method() === 'post') {
 			if ($this->_cekPesanan()) {
 				$this->_insertPemesanan();
+
+				redirect('umkm/lihat-pesanan');
 			}
 		}
 
