@@ -60,13 +60,14 @@ class Model_pemesanan extends CI_Model {
 			$this->db->where('pemesanan.status', $status);
 		}
 
-		$this->db->select('pemesanan.*, nama_layanan, p.no_wa,nama_produk, nama_umkm, p.nama AS pengelola, f.nama AS freelancer');
+		$this->db->select('pemesanan.*, nama_layanan, pm.no_wa,nama_produk, nama_umkm, p.nama AS pengelola, f.nama AS freelancer');
 		$this->db->from('pemesanan');
 		$this->db->join('user AS p', 'p.id_user = pemesanan.id_pengelola', 'left');
 		$this->db->join('user AS f', 'f.id_user = pemesanan.id_freelancer', 'left');
 		$this->db->join('layanan AS l', 'id_layanan');
 		$this->db->join('produk AS pr', 'id_produk');
 		$this->db->join('umkm AS um', 'id_umkm');
+		$this->db->join('user AS pm', 'pm.id_user = um.id_user');
 		$this->db->order_by('id_pesan', 'desc');
 
 		$result = $this->db->get();
