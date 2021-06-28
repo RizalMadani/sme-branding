@@ -36,7 +36,7 @@
           <div class="col-12">
               <div class="card">
                   <div class="card-body">
-                    <h4 class="mt-0 header-title">Data Admin SME-Branding</h4>
+                    <h4 class="mt-0 header-title">Data Freelancer SME-Branding</h4>
                     <p class="text-muted font-14">Berikut adalah data-data freelancer sme-branding
                     </p>
                       <br>

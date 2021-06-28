@@ -75,7 +75,7 @@
                       <tr>
                         <td><?= $no++; ?></td>
                         <td><?= $pesanan->nama_produk; ?></td>
-                        <td><?= $pesanan->nama_layanan; ?></td>
+                        <td><?= ucwords($pesanan->nama_layanan); ?></td>
                         <td><?= $pesanan->status; ?></td>
                         <td>
 

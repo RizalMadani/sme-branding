@@ -59,7 +59,7 @@
                             foreach ($datalayanan as $p): ?>
                             <tr>
                               <td><?=$no++?></td>
-                              <td><?=$p->nama_layanan?></td>
+                              <td><?= ucwords($p->nama_layanan); ?></td>
                               <td>Rp <?=number_format($p->harga,0,',','.')?></td>
                               <td><?=$p->detail_layanan?></td>
                               <td>

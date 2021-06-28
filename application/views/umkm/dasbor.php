@@ -86,8 +86,8 @@
                   foreach($produk as $prd): ?>
                     <div class="card mb-2" style="box-shadow:unset;border:1px solid #e5e5e5;">
                       <div class="card-body">
-                        <strong class="d-block"><?= character_limiter($prd->nama_produk, 13); ?></strong>
-                        <p class="mb-0"><?= character_limiter($prd->keterangan, 37); ?></p>
+                        <strong class="d-block"><?= character_limiter($prd->nama_produk, 37); ?></strong>
+                        <p class="mb-0"><?= character_limiter($prd->keterangan, 117); ?></p>
                       </div>
                     </div>
                   <?php endforeach; ?>

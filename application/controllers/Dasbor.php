@@ -39,20 +39,21 @@ class Dasbor extends MY_Controller {
 	{
 		$this->load->model('Model_user');
 		$this->load->model('Model_transaksi');
+
 		$id_user = $this->session->id_user;
 		// $data     = $this->Model_dasbor->getRingkasan();
 		$data = array(
 			'jumlah_umkm'       => $this->db->count_all('umkm'),
 			'jumlah_user'       => $this->db->count_all('user'),
 			'jumlah_freelancer' => $this->Model_user->jumlah_freelancer(),
-			'jumlah_admin'			=> $this->Model_user->jumlah_pengelola(),
-			'jumlah_pending'		=> $this->Model_user->jumlah_pemesanan_pending(),
-			'jumlah_ongoing'		=> $this->Model_user->jumlah_pemesanan_ongoing(),
-			'jumlah_selesai'		=> $this->Model_user->jumlah_pemesanan_selesai(),
+			'jumlah_admin'      => $this->Model_user->jumlah_pengelola(),
+			'jumlah_pending'    => $this->Model_user->jumlah_pemesanan_pending(),
+			'jumlah_ongoing'    => $this->Model_user->jumlah_pemesanan_ongoing(),
+			'jumlah_selesai'    => $this->Model_user->jumlah_pemesanan_selesai(),
 			'jumlah_transaksi'	=> $this->Model_user->jumlah_transaksi(),
-			'user' => $this->Model_user->getUser($id_user),
-			'dataumkm'					=> $this->Model_user->getDataUMKM(),
-			'datapesanan'				=> $this->Model_transaksi->getPemesanan()
+			'user'              => $this->Model_user->getUser($id_user),
+			'dataumkm'          => $this->Model_user->getDataUMKM(),
+			'datapesanan'       => $this->Model_transaksi->getPemesanan()
 		);
 		return $this->load->view('admin/dasbor',$data);
 	}
@@ -60,14 +61,17 @@ class Dasbor extends MY_Controller {
 	private function _tampilDasborFreelancer()
 	{
 		$this->load->model('Model_user');
+
 		$id_user = $this->session->id_user;
-    $data = array(
-      'user' => $this->Model_user->getUser($id_user),
+
+    	$data = array(
+      		'user'           => $this->Model_user->getUser($id_user),
 			'jumlah_pesanan' => $this->Model_user->jumlahPesananFreelancer($id_user),
-			'ongoing'				 => $this->Model_user->jumlahPesananOngoing($id_user),
-			'review'				 => $this->Model_user->jumlahPesananReview($id_user),
-			'approval'		   => $this->Model_user->jumlahPesananApproval($id_user)
-    );
+			'ongoing'        => $this->Model_user->jumlahPesananOngoing($id_user),
+			'review'         => $this->Model_user->jumlahPesananReview($id_user),
+			'approval'       => $this->Model_user->jumlahPesananApproval($id_user)
+   		 );
+
 		return $this->load->view('freelancer/dasbor',$data);
 	}
 

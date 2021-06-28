@@ -137,12 +137,14 @@
                       <?php
                       $no = 1;
                       foreach ($datapesanan as $d): ?>
-                        <td><?=$no++?></td>
-                        <td>P000<?=$d->id_pesan?></td>
-                        <td>L000<?=$d->id_layanan?></td>
-                        <td><?=$d->tgl_mulai?></td>
-                        <td><?=$d->tgl_akhir?></td>
-                        <td><span class="badge badge-boxed  badge-success"><?=$d->status?></span></td>
+                        <tr>
+                          <td><?=$no++?></td>
+                          <td>P000<?=$d->id_pesan?></td>
+                          <td>L000<?=$d->id_layanan?></td>
+                          <td><?=$d->tgl_mulai?></td>
+                          <td><?=$d->tgl_akhir?></td>
+                          <td><span class="badge badge-boxed  badge-success"><?=$d->status?></span></td>
+                        </tr>
                       <?php endforeach; ?>
                     </tbody>
                   </table>
